@@ -21,7 +21,6 @@ const instructions = Platform.select({
 
 class ForgetPasswordScreen extends React.Component {
   componentDidMount() {
-    this._fetchUser()
   }
 
   render() {

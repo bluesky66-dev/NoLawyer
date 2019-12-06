@@ -21,7 +21,6 @@ const instructions = Platform.select({
 
 class RegalJusticeScreen extends React.Component {
   componentDidMount() {
-    this._fetchUser()
   }
 
   render() {
