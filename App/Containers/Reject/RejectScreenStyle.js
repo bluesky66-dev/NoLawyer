@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
-import {widthPercentage as wp, heightPercentage as hp} from '@Common';
-import { Helpers, Metrics, Fonts, Colors } from 'App/Theme'
+import { heightPercentage as hp, widthPercentage as wp } from '@Common'
+import { Colors } from 'App/Theme'
 
 export default StyleSheet.create({
   u1View: {
