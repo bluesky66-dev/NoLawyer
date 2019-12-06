@@ -3,7 +3,7 @@ import { Colors } from 'App/Theme'
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.white,
   },
   logo: {
     backgroundColor: Colors.white,
