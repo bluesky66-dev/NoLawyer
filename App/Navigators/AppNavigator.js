@@ -10,7 +10,7 @@ import RegisterScreen from 'App/Containers/Register/RegisterScreen'
 import RegalJusticeScreen from 'App/Containers/RegalJustice/RegalJusticeScreen'
 import LoginScreen from 'App/Containers/Login/LoginScreen'
 import ForgetPasswordScreen from 'App/Containers/ForgetPassword/ForgetPasswordScreen'
-
+import HomeScreen from 'App/Containers/Home/HomeScreen'
 /**
  * The root screen contains the application's navigation.
  *
@@ -32,6 +32,7 @@ const StackNavigator = createStackNavigator(
     RegalJusticeScreen: RegalJusticeScreen,
     LoginScreen: LoginScreen,
     ForgetPasswordScreen: ForgetPasswordScreen,
+    HomeScreen: HomeScreen,
   },
   {
     // By default the application will show the splash screen

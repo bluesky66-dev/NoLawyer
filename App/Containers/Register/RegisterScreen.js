@@ -1,11 +1,11 @@
 import React from 'react'
-import { TouchableOpacity, Text, View, TextInput, ActivityIndicator, Image } from 'react-native'
+import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './RegisterScreenStyle'
-import { ApplicationStyles, Fonts, Helpers, Images, Metrics } from 'App/Theme'
+import { Fonts, Helpers } from 'App/Theme'
 
 class RegisterScreen extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class RegisterScreen extends React.Component {
         </View>
         <View style={Style.u38}>
           <Text style={[Fonts.PoppinsRegular, Style.u38Text]}>Welcome to nolawyer</Text>
-          <Text style={[Fonts.PoppinsRegular, Style.u38Text]}>Create your nolawyer account here</Text>
+          <Text style={[Fonts.PoppinsRegular, Style.u38Text, Style.u39Text]}>Create your nolawyer account here</Text>
         </View>
         <View style={Style.u41}>
           <TextInput
@@ -62,13 +62,27 @@ class RegisterScreen extends React.Component {
           style={[Helpers.center, Style.u48]}
           onPress={() => this._toLogin()}
         >
-
+          <Text style={[Fonts.PoppinsMedium, Style.u48Text]}>Sign Up</Text>
         </TouchableOpacity>
+        <View style={[Helpers.rowCross, Style.u49]}>
+          <Text style={[Fonts.PoppinsRegular, Style.u49Text]}>Already have an Account?</Text>
+          <TouchableOpacity
+            style={[Helpers.center, Style.u50]}
+            onPress={() => this._toLogin()}
+          >
+            <Text style={[Fonts.PoppinsBold, Style.u50Text]}>Login</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={Style.u51}>
+          <Text style={[Fonts.PoppinsRegular, Style.u51Text]}>By signing up, you're agreeing to nolawyer terms and conditions</Text>
+        </View>
       </View>
     )
   }
 
   _toLogin() {
+    const {navigate} = this.props.navigation;
+    navigate('LoginScreen');
   }
 }
 
