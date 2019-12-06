@@ -12,7 +12,10 @@
     "lint-fix": "eslint --fix .",
     "lint-check": "eslint .",
     "rename": "react-native-rename",
-    "postinstall": "npx jetify"
+    "postinstall": "npx jetify",
+    "clean": "cd android && gradlew clean && cd ..",
+    "bundle": "cd android && gradlew bundleRelease && cd ..",
+    "assemble": "cd android && gradlew assembleRelease && cd .."
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.3",
