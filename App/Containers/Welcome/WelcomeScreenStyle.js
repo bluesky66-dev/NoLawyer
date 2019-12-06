@@ -1,32 +1,52 @@
 import { StyleSheet } from 'react-native'
-import { Helpers, Metrics, Fonts, Colors } from 'App/Theme'
+import {widthPercentage as wp, heightPercentage as hp} from '@Common';
+import { Colors } from '@Theme';
 
 export default StyleSheet.create({
-  error: {
-    ...Fonts.normal,
-    color: Colors.error,
-    marginBottom: Metrics.tiny,
+  imgContainer: {
+    alignSelf: 'center',
+    width: hp(185),
+    height: hp(185),
+  },
+  u9Img: {
+    width: '100%',
+    height: '100%',
+  },
+  u8: {
+    marginTop: hp(-50),
+  },
+  u10: {
+    paddingLeft: wp(18),
+    paddingRight: wp(18),
+    marginTop: hp(20),
+  },
+  u10Text: {
     textAlign: 'center',
+    fontWeight: '600',
+    fontSize: hp(18),
+    color: Colors.primary,
   },
-  instructions: {
-    ...Fonts.normal,
-    fontStyle: 'italic',
-    marginBottom: Metrics.tiny,
+  u11: {
+    marginTop: hp(13),
+    paddingLeft: wp(18),
+    paddingRight: wp(18),
+  },
+  u11Text: {
     textAlign: 'center',
+    fontWeight: '400',
+    fontSize: hp(14),
+    color: Colors.text,
   },
-  logoContainer: {
-    ...Helpers.fullWidth,
-    height: 300,
-    marginBottom: 25,
+  u21: {
+    position: 'absolute',
+    bottom: 0,
+    width: wp(360),
+    height: hp(50),
+    backgroundColor: Colors.primary,
   },
-  result: {
-    ...Fonts.normal,
-    marginBottom: Metrics.tiny,
-    textAlign: 'center',
-  },
-  text: {
-    ...Fonts.normal,
-    marginBottom: Metrics.tiny,
-    textAlign: 'center',
-  },
+  u21Text: {
+    fontWeight: '600',
+    fontSize: hp(16),
+    color: Colors.white,
+  }
 })

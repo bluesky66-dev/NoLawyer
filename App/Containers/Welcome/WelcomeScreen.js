@@ -1,23 +1,13 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
+import { Image, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './WelcomeScreenStyle'
-import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
-
-/**
- * This is an example of a container component.
- *
- * This screen displays a little help message and informations about a fake user.
- * Feel free to remove it.
- */
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu.',
-  android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.',
-})
+import { Helpers } from 'App/Theme'
+import { PoppinsText } from '@Components'
+import OnBoardingIcon from '@Assets/Images/onboarding_icon1_u9.png'
 
 class WelcomeScreen extends React.Component {
   componentDidMount() {
@@ -27,47 +17,33 @@ class WelcomeScreen extends React.Component {
     return (
       <View
         style={[
-          Helpers.fill,
-          Helpers.rowMain,
-          Metrics.mediumHorizontalMargin,
-          Metrics.mediumVerticalMargin,
+          Helpers.fillCenter,
         ]}
       >
-        {this.props.userIsLoading ? (
-          <ActivityIndicator size="large" color="#0000ff" />
-        ) : (
-          <View>
-            <View style={Style.logoContainer}>
-              <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
-            </View>
-            <Text style={Style.text}>To get started, edit App.js</Text>
-            <Text style={Style.instructions}>{instructions}</Text>
-            {this.props.userErrorMessage ? (
-              <Text style={Style.error}>{this.props.userErrorMessage}</Text>
-            ) : (
-              <View>
-                <Text style={Style.result}>
-                  {"I'm a fake user, my name is "}
-                  {this.props.user.name}
-                </Text>
-                <Text style={Style.result}>
-                  {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
-                </Text>
-              </View>
-            )}
-            <Button
-              style={ApplicationStyles.button}
-              onPress={() => this._fetchUser()}
-              title="Refresh"
-            />
+        <View tyle={Style.u8}>
+          <View style={Style.imgContainer}>
+            <Image style={Style.u9Img} source={OnBoardingIcon} resizeMode={'cover'}/>
           </View>
-        )}
+          <View style={Style.u10}>
+            <PoppinsText style={Style.u10Text}>No Lawyer? Don't Worry</PoppinsText>
+          </View>
+          <View style={Style.u11}>
+            <PoppinsText style={Style.u11Text}>When you need a lawyer, you'll be surprise how much it cost to hire one. find answers to your legal questions with more options, and less headaches</PoppinsText>
+          </View>
+        </View>
+        <TouchableOpacity
+          style={[Helpers.center, Style.u21]}
+          onPress={() => this._toSignup()}
+        >
+          <PoppinsText style={Style.u21Text}>Get Started</PoppinsText>
+        </TouchableOpacity>
       </View>
     )
   }
 
-  _fetchUser() {
-    this.props.fetchUser()
+  _toSignup() {
+    const {navigate} = this.props.navigation;
+    navigate('TermsScreen');
   }
 }
 

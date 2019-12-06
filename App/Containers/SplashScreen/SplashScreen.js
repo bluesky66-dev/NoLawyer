@@ -1,6 +1,7 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import styles from './SplashScreenStyle'
+import { PoppinsText } from '@Components'
 import { Helpers } from 'App/Theme'
 
 export default class SplashScreen extends React.Component {
@@ -9,7 +10,7 @@ export default class SplashScreen extends React.Component {
       <View style={[Helpers.fillRowCenter, styles.container]}>
         <View style={[Helpers.center, styles.logo]}>
           {/* You will probably want to insert your logo here */}
-          <Text>nolawyer</Text>
+          <PoppinsText style={[styles.logoTxt]}>nolawyer</PoppinsText>
         </View>
       </View>
     )

@@ -10,4 +10,9 @@ export default StyleSheet.create({
     height: 70,
     width: 70,
   },
+  logoTxt: {
+    color: '#077CFF',
+    fontWeight: '900',
+    fontSize: 22
+  },
 })
