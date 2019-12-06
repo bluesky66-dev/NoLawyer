@@ -32,7 +32,7 @@ export default StyleSheet.create({
   },
   u26: {
     position: 'absolute',
-    bottom: wp(5),
+    bottom: hp(5),
     width: wp(328),
     left: wp(16),
   },

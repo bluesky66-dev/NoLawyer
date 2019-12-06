@@ -22,7 +22,7 @@ class WelcomeScreen extends React.Component {
       >
         <View tyle={Style.u8}>
           <View style={Style.imgContainer}>
-            <Image style={Style.u9Img} source={OnBoardingIcon} resizeMode={'cover'}/>
+            <Image style={Style.u9Img} source={OnBoardingIcon} resizeMode={'contain'}/>
           </View>
           <View style={Style.u10}>
             <PoppinsText style={Style.u10Text}>No Lawyer? Don't Worry</PoppinsText>
