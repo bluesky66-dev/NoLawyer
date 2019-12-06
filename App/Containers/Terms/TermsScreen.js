@@ -63,9 +63,13 @@ class TermsScreen extends React.Component {
   }
 
   _acceptTerm() {
+    const {navigate} = this.props.navigation;
+    navigate('RegisterScreen');
   }
 
   _rejectTerm() {
+    const {navigate} = this.props.navigation;
+    navigate('RejectScreen');
   }
 }
 
