@@ -1,32 +1,35 @@
 import { StyleSheet } from 'react-native'
-import { Helpers, Metrics, Fonts, Colors } from 'App/Theme'
+import { heightPercentage as hp, widthPercentage as wp } from '@Common'
+import { Colors } from 'App/Theme'
 
 export default StyleSheet.create({
-  error: {
-    ...Fonts.normal,
-    color: Colors.error,
-    marginBottom: Metrics.tiny,
-    textAlign: 'center',
+  home: {
+    paddingLeft: wp(15),
+    paddingRight: wp(15),
+    paddingTop: hp(33),
   },
-  instructions: {
-    ...Fonts.normal,
-    fontStyle: 'italic',
-    marginBottom: Metrics.tiny,
-    textAlign: 'center',
+  u142: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: wp(15),
+    paddingRight: wp(15),
+    height: hp(92),
+    backgroundColor: Colors.primary,
+    borderTopLeftRadius: hp(8),
+    borderTopRightRadius: hp(8)
   },
-  logoContainer: {
-    ...Helpers.fullWidth,
-    height: 300,
-    marginBottom: 25,
+  u142Text: {
+    alignContent: 'flex-start',
+    width: wp(175),
+    paddingLeft: wp(10),
+    fontWeight: '600',
+    fontSize: hp(18),
+    color: Colors.white,
   },
-  result: {
-    ...Fonts.normal,
-    marginBottom: Metrics.tiny,
-    textAlign: 'center',
-  },
-  text: {
-    ...Fonts.normal,
-    marginBottom: Metrics.tiny,
-    textAlign: 'center',
-  },
+  u142Img: {
+    alignContent: 'flex-end',
+    marginLeft: wp(55),
+    width: hp(75),
+    height: hp(75)
+  }
 })

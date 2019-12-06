@@ -1,11 +1,14 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
+import { Platform, Text, View, Button, ActivityIndicator, Image, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './HomeScreenStyle'
-import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
+import { ApplicationStyles, Helpers, Images, Fonts } from 'App/Theme'
+import { Header } from '@Components'
+import ProfileIcon from '@Assets/Images/user_profile_icon_u120.png'
+import u143onboarding from '@Assets/Images/u143onboarding.png'
 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -18,6 +21,13 @@ class HomeScreen extends React.Component {
           Helpers.fill,
         ]}
       >
+        <Header />
+        <View style={[Style.home]}>
+          <View style={[Style.u142]}>
+            <Text style={[Fonts.PoppinsBlack, Style.u142Text]}>Your Self Help to Legal Justice</Text>
+            <Image style={Style.u142Img} source={u143onboarding} resizeMode={'contain'}/>
+          </View>
+        </View>
       </View>
     )
   }

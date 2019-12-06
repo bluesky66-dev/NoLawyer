@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { heightPercentage as hp, widthPercentage as wp } from '@Common'
-import { Helpers, Metrics, Fonts, Colors } from 'App/Theme'
+import { Colors } from 'App/Theme'
 
 export default StyleSheet.create({
   u35: {
