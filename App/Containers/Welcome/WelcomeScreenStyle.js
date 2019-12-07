@@ -3,6 +3,13 @@ import {widthPercentage as wp, heightPercentage as hp} from '@Common';
 import { Colors } from '@Theme';
 
 export default StyleSheet.create({
+  pager: {
+    marginTop: hp(80),
+    height: hp(374),
+    width: '100%'
+  },
+  u8: {
+  },
   imgContainer: {
     alignSelf: 'center',
     width: hp(185),
@@ -11,9 +18,6 @@ export default StyleSheet.create({
   u9Img: {
     width: '100%',
     height: '100%',
-  },
-  u8: {
-    marginTop: hp(-50),
   },
   u10: {
     paddingLeft: wp(18),
@@ -36,6 +40,20 @@ export default StyleSheet.create({
     fontWeight: '400',
     fontSize: hp(14),
     color: Colors.text,
+  },
+  indicator: {
+    marginTop: hp(10),
+  },
+  iActive: {
+    backgroundColor: Colors.primary,
+  },
+  iItem: {
+    width: hp(7),
+    height: hp(7),
+    borderRadius: hp(4),
+    backgroundColor: '#14449933',
+    marginLeft: wp(3),
+    marginRight: wp(3),
   },
   u21: {
     position: 'absolute',
