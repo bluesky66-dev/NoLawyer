@@ -12,6 +12,17 @@ export default StyleSheet.create({
     fontSize: hp(22),
     color: Colors.primary,
   },
+  backBtn: {
+    position: 'absolute',
+    top: hp(18),
+    left: wp(15),
+    width: hp(19),
+    height: hp(19),
+  },
+  backIcon: {
+    width: '100%',
+    height: '100%',
+  },
   left: {
     position: 'absolute',
     top: hp(18),

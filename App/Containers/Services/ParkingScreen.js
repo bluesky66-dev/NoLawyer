@@ -1,12 +1,12 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
+import { Platform, Text, View, Button, ActivityIndicator, Image, TouchableOpacity, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ServicesScreenStyle'
 import { Header } from '@Components'
-import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
+import { ApplicationStyles, Fonts, Helpers, Images, Metrics } from 'App/Theme'
 
 class ParkingScreen extends React.Component {
   componentDidMount() {
@@ -19,6 +19,27 @@ class ParkingScreen extends React.Component {
           Helpers.fill,
         ]}
       >
+        <Header SubPage />
+        <ScrollView style={[Style.serviceWrapper]}>
+          <View style={Style.spaceTop}/>
+          <View style={[Helpers.colCross, Style.card, Style.cardMarginTop, Style.borderSecond]}>
+            <View style={[Style.cardTop, Helpers.center]}>
+              <Text style={[Fonts.PoppinsSemiBold, Style.cardTitle]}>Disciplinary Meeting at Work</Text>
+              <Text style={[Fonts.PoppinsRegular, Style.cardDesc]}>
+                Have you been invited to attend a disciplinary hearing or meeting?
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={[Helpers.center, Style.CardButton, Style.bgSecond]}
+              onPress={() => this._toEmployment()}
+            >
+              <Text style={[Fonts.PoppinsRegular, Style.ButtonText, Style.TextDark]}>
+                SOLVE MY PROBLEM
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={Style.spaceBottom}/>
+        </ScrollView>
       </View>
     )
   }
