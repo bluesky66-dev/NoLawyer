@@ -4,16 +4,17 @@ import { Colors } from 'App/Theme'
 
 export default StyleSheet.create({
   drawerBox: {
-    // width: wp(300),
-    // backgroundColor: Colors.white
   },
   u131: {
     paddingLeft: wp(20),
     paddingRight: wp(97),
     paddingTop: hp(10),
     height: hp(127),
-    borderBottomWidth: 1,
-    borderColor: Colors.text
+  },
+  topHr: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#e8edf5'
   },
   u131Text: {
     fontWeight: '500',
@@ -34,13 +35,18 @@ export default StyleSheet.create({
     fontSize: hp(10),
     color: Colors.white,
   },
+  bottomHr: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#e8edf5',
+    position: 'absolute',
+    bottom: hp(119),
+  },
   u137: {
     width: '100%',
     position: 'absolute',
     bottom: 0,
     height: hp(119),
-    borderTopWidth: 1,
-    borderColor: Colors.text
   },
   u137Text: {
     fontWeight: '600',

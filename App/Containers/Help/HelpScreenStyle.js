@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   u259: {
     paddingLeft: wp(25),
-    paddingRight: wp(48),
+    paddingRight: wp(25),
     marginBottom: hp(17),
   },
   u259Text: {

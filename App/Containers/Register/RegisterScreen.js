@@ -60,7 +60,7 @@ class RegisterScreen extends React.Component {
         </View>
         <TouchableOpacity
           style={[Helpers.center, Style.u48]}
-          onPress={() => this._toLogin()}
+          onPress={() => this._toHome()}
         >
           <Text style={[Fonts.PoppinsMedium, Style.u48Text]}>Sign Up</Text>
         </TouchableOpacity>
@@ -82,7 +82,10 @@ class RegisterScreen extends React.Component {
 
   _toLogin() {
     const {navigate} = this.props.navigation;
-    // navigate('LoginScreen');
+    navigate('LoginScreen');
+  }
+  _toHome() {
+    const {navigate} = this.props.navigation;
     navigate('MainScreen');
   }
 }

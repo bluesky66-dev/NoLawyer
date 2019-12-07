@@ -13,6 +13,7 @@ export default class DrawerMenu extends Component {
         <View style={Style.u131}>
           <Text style={[Style.u131Text, Fonts.PoppinsMedium]}>yourname@email.com</Text>
         </View>
+        <View style={Style.topHr}/>
         <TouchableOpacity
           style={[Helpers.center, Style.u132]}
           onPress={() => this._toLogout()}
@@ -22,6 +23,7 @@ export default class DrawerMenu extends Component {
         <DrawerItems
           {...this.props}
         />
+        <View style={Style.bottomHr}/>
         <View style={[Style.u137, Helpers.center]}>
           <Text style={[Style.u137Text, Fonts.PoppinsBlack]}>nolawyer</Text>
         </View>
