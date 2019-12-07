@@ -1,4 +1,4 @@
-import { Colors } from './index'
+import { heightPercentage as hp } from '@Common'
 
 /**
  * This file contains metric values that are global to the application.

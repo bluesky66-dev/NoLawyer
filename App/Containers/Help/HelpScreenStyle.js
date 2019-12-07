@@ -11,7 +11,7 @@ export default StyleSheet.create({
   u259: {
     paddingLeft: wp(25),
     paddingRight: wp(48),
-    paddingBottom: wp(17),
+    marginBottom: hp(17),
   },
   u259Text: {
     marginTop: hp(18),
