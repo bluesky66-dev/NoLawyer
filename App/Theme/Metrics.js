@@ -1,3 +1,5 @@
+import { Colors } from './index'
+
 /**
  * This file contains metric values that are global to the application.
  */
@@ -54,7 +56,6 @@ export default {
   mediumHorizontalPadding: {
     paddingHorizontal: medium,
   },
-
   tinyVerticalPadding: {
     paddingVertical: tiny,
   },
@@ -66,5 +67,11 @@ export default {
   },
   mediumVerticalPadding: {
     paddingVertical: medium,
+  },
+  drawerItem: {
+    fontFamily: 'Poppins-Regular',
+    fontWeight: '400',
+    fontSize: hp(12),
+    color: '#131031',
   },
 }

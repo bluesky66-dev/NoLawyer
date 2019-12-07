@@ -6,8 +6,8 @@ import ProfileScreen from 'App/Containers/Profile/ProfileScreen'
 import TermsConditionsScreen from 'App/Containers/Help/TermsConditionsScreen'
 import PrivacyScreen from 'App/Containers/Help/PrivacyScreen'
 import SettingScreen from 'App/Containers/Help/NotificationsScreen'
-import { Colors } from 'App/Theme'
-import { heightPercentage as hp, widthPercentage as wp } from '@Common'
+import { Colors, Metrics } from 'App/Theme'
+import { widthPercentage as wp } from '@Common'
 
 const DrawerNavigator = createDrawerNavigator({
     HomeScreen: {
@@ -46,6 +46,9 @@ const DrawerNavigator = createDrawerNavigator({
     contentComponent: DrawerMenu,
     drawerWidth: wp(300),
     contentOptions: {
+      labelStyle: Metrics.drawerItem,
+      inactiveLabelStyle: Metrics.drawerItem,
+      inactiveTintColor: Colors.text,
       activeTintColor: Colors.dark,
       activeBackgroundColor: Colors.white,
     }
