@@ -31,7 +31,7 @@ class HMRCScreen extends React.Component {
             </View>
             <TouchableOpacity
               style={[Helpers.center, Style.CardButton, Style.bgPrimary]}
-              onPress={() => this._toEmployment()}
+              onPress={() => this._toSolve()}
             >
               <Text style={[Fonts.PoppinsRegular, Style.ButtonText, Style.TextWhite]}>
                 SOLVE MY PROBLEM
@@ -44,8 +44,9 @@ class HMRCScreen extends React.Component {
     )
   }
 
-  _fetchUser() {
-    this.props.fetchUser()
+  _toSolve() {
+    const {navigate} = this.props.navigation;
+    navigate('SolveScreen');
   }
 }
 

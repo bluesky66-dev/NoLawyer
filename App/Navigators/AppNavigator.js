@@ -18,6 +18,7 @@ import ParkingScreen from 'App/Containers/Services/ParkingScreen'
 import SubscriptionScreen from 'App/Containers/Services/SubscriptionScreen'
 import HMRCScreen from 'App/Containers/Services/HMRCScreen'
 import VisasScreen from 'App/Containers/Services/VisasScreen'
+import SolveScreen from 'App/Containers/Solve/SolveScreen'
 
 /**
  * The root screen contains the application's navigation.
@@ -48,13 +49,14 @@ const StackNavigator = createStackNavigator(
     SubscriptionScreen: SubscriptionScreen,
     HMRCScreen: HMRCScreen,
     VisasScreen: VisasScreen,
+    SolveScreen: SolveScreen,
   },
   {
     // By default the application will show the splash screen
     initialRouteName: 'SplashScreen',
     // See https://reactnavigation.org/docs/en/stack-navigator.html#stacknavigatorconfig
     headerMode: 'none',
-  }
+  },
 )
 
 export default createAppContainer(StackNavigator)
