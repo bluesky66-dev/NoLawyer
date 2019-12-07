@@ -1,13 +1,14 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
-import Style from './TermsConditionsScreenStyle'
-import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
+import { Header } from '@Components'
+import Style from './HelpScreenStyle'
+import { Fonts, Helpers } from 'App/Theme'
 
-class TermsConditionsScreen extends React.Component {
+class NotificationsScreen extends React.Component {
   componentDidMount() {
   }
 
@@ -16,11 +17,13 @@ class TermsConditionsScreen extends React.Component {
       <View
         style={[
           Helpers.fill,
-          Helpers.rowMain,
-          Metrics.mediumHorizontalMargin,
-          Metrics.mediumVerticalMargin,
         ]}
       >
+        <Header
+          SubPage
+          HideRight
+          title={'Notifications & Settings:'}
+          titleStyle={[Fonts.PoppinsExtraBold, Style.title]}/>
       </View>
     )
   }
@@ -30,7 +33,7 @@ class TermsConditionsScreen extends React.Component {
   }
 }
 
-TermsConditionsScreen.propTypes = {
+NotificationsScreen.propTypes = {
   user: PropTypes.object,
   userIsLoading: PropTypes.bool,
   userErrorMessage: PropTypes.string,
@@ -52,4 +55,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TermsConditionsScreen)
+)(NotificationsScreen)
