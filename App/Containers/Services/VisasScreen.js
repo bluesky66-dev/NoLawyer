@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ServicesScreenStyle'
+import { Header } from '@Components'
 import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 
 class VisasScreen extends React.Component {
@@ -16,9 +17,6 @@ class VisasScreen extends React.Component {
       <View
         style={[
           Helpers.fill,
-          Helpers.rowMain,
-          Metrics.mediumHorizontalMargin,
-          Metrics.mediumVerticalMargin,
         ]}
       >
       </View>
@@ -26,7 +24,6 @@ class VisasScreen extends React.Component {
   }
 
   _fetchUser() {
-    this.props.fetchUser()
   }
 }
 

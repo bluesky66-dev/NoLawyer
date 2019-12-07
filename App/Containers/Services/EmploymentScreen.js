@@ -5,6 +5,7 @@ import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ServicesScreenStyle'
+import { Header } from '@Components'
 import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 
 class EmploymentScreen extends React.Component {
@@ -18,6 +19,7 @@ class EmploymentScreen extends React.Component {
           Helpers.fill,
         ]}
       >
+        <Header />
       </View>
     )
   }
