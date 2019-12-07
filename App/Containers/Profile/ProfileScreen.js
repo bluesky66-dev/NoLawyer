@@ -1,13 +1,26 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
+import { Platform, Text, View, Button, ActivityIndicator, Image, TextInput, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
+import { Header } from '@Components'
 import Style from './ProfileScreenStyle'
-import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
+import { ApplicationStyles, Helpers, Images, Fonts } from 'App/Theme'
+import UserImage from '@Assets/Images/user_image_u242.png'
 
 class ProfileScreen extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: 'jamesorior@gmail.com',
+      password: '*************',
+      phone: '+444235851499',
+      pinEmail: '',
+      pinPass: '',
+    }
+  }
+
   componentDidMount() {
   }
 
@@ -16,17 +29,69 @@ class ProfileScreen extends React.Component {
       <View
         style={[
           Helpers.fill,
-          Helpers.rowMain,
-          Metrics.mediumHorizontalMargin,
-          Metrics.mediumVerticalMargin,
         ]}
       >
+        <Header SubPage HideRight/>
+        <View style={[Style.profile]}>
+          <View style={Style.u240}>
+            <Image style={Style.u240Img} source={UserImage} resizeMode={'contain'}/>
+          </View>
+          <View style={Style.u243}>
+            <TextInput
+              style={[Fonts.PoppinsRegular, Style.profileInput]}
+              placeholder={'Email address'}
+              keyboardType={'email-address'}
+              onChangeText={text => this.setState({email: text})}
+              value={this.state.email}
+            />
+            <TextInput
+              style={[Fonts.PoppinsRegular, Style.profileInput]}
+              placeholder={'Password'}
+              keyboardType={'default'}
+              secureTextEntry={true}
+              onChangeText={text => this.setState({password: text})}
+              value={this.state.password}
+            />
+            <TextInput
+              style={[Fonts.PoppinsRegular, Style.profileInput]}
+              placeholder={'Phone number'}
+              keyboardType={'numeric'}
+              onChangeText={text => this.setState({phone: text})}
+              value={this.state.phone}
+            />
+          </View>
+          <View style={Style.u246}>
+            <Text style={Style.u246Text}>Choose pin code fast login</Text>
+          </View>
+          <View style={Style.u248}>
+            <TextInput
+              style={[Fonts.PoppinsRegular, Style.profileInput]}
+              placeholder={'Password'}
+              keyboardType={'default'}
+              secureTextEntry={true}
+              onChangeText={text => this.setState({pinPass: text})}
+              value={this.state.pinPass}
+            />
+            <TextInput
+              style={[Fonts.PoppinsRegular, Style.profileInput]}
+              placeholder={'Email address'}
+              keyboardType={'email-address'}
+              onChangeText={text => this.setState({pinEmail: text})}
+              value={this.state.pinEmail}
+            />
+          </View>
+          <TouchableOpacity
+            style={[Helpers.center, Style.u21]}
+            onPress={() => this._updateProfile()}
+          >
+            <Text style={[Fonts.PoppinsMedium, Style.u21Text]}>Update Profile</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }
 
-  _fetchUser() {
-    this.props.fetchUser()
+  _updateProfile() {
   }
 }
 

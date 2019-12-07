@@ -4,6 +4,7 @@ import { withNavigation } from 'react-navigation';
 import { DrawerActions } from 'react-navigation-drawer';
 import { Fonts, Helpers } from 'App/Theme'
 import Style from './HeaderStyle'
+import NavigationService from 'App/Services/NavigationService'
 import ProfileIcon from '@Assets/Images/user_profile_icon_u120.png'
 import BackIcon from '@Assets/Images/back_screenbtn_u174.png'
 
@@ -14,7 +15,7 @@ class Header extends Component {
   }
 
   render() {
-    const { SubPage } = this.props;
+    const { SubPage, HideRight } = this.props;
     return (
       <View style={[Helpers.rowCenter, Style.header]}>
         {SubPage && <TouchableOpacity
@@ -30,12 +31,12 @@ class Header extends Component {
           <View style={Style.listIcon}/>
         </TouchableOpacity>}
         <Text style={[Fonts.PoppinsBlack, Style.logoTxt]}>nolawyer</Text>
-        <TouchableOpacity
+        {!HideRight && <TouchableOpacity
           style={[Helpers.center, Style.right]}
           onPress={() => this._toProfile()}
         >
           <Image style={Style.rightImg} source={ProfileIcon} resizeMode={'contain'}/>
-        </TouchableOpacity>
+        </TouchableOpacity>}
       </View>
     )
   }
@@ -44,12 +45,10 @@ class Header extends Component {
     this.props.navigation.dispatch(DrawerActions.openDrawer());
   }
   _toHome() {
-    const {navigate} = this.props.navigation;
-    navigate('MainScreen');
+    NavigationService.navigateAndReset('MainScreen')
   }
   _toProfile() {
-    const {navigate} = this.props.navigation;
-    navigate('ProfileScreen');
+    NavigationService.navigateAndReset('ProfileScreen')
   }
 }
 export default withNavigation(Header)
