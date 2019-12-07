@@ -4,10 +4,10 @@ import { Colors } from 'App/Theme'
 
 export default StyleSheet.create({
   profile: {
-    flex: 1,
+    height: hp(535),
     paddingTop: hp(5),
     paddingLeft: wp(30),
-    paddingRight: wp(30)
+    paddingRight: wp(30),
   },
   u240: {
     alignItems: 'center',
