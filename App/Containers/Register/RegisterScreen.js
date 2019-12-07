@@ -83,7 +83,7 @@ class RegisterScreen extends React.Component {
   _toLogin() {
     const {navigate} = this.props.navigation;
     // navigate('LoginScreen');
-    navigate('HomeScreen');
+    navigate('MainScreen');
   }
 }
 

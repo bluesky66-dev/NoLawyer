@@ -6,7 +6,12 @@ export default StyleSheet.create({
   home: {
     paddingLeft: wp(15),
     paddingRight: wp(15),
-    paddingTop: hp(33),
+  },
+  topSpace: {
+    height: hp(33),
+  },
+  bottomSpace: {
+    height: hp(66)
   },
   u142: {
     flexDirection: 'row',
@@ -95,8 +100,5 @@ export default StyleSheet.create({
     color: Colors.dark,
     paddingLeft: wp(22),
     paddingRight: wp(22),
-  },
-  space: {
-    height: hp(66)
   },
 })

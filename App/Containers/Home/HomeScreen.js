@@ -16,6 +16,7 @@ import u169Icon from '@Assets/Images/parking_ticket_icon_u169.png'
 import u170Icon from '@Assets/Images/request_refund_tv_subscription_icon_u170.png'
 
 class HomeScreen extends React.Component {
+
   componentDidMount() {
   }
 
@@ -28,6 +29,7 @@ class HomeScreen extends React.Component {
       >
         <Header />
         <ScrollView style={[Style.home]}>
+          <View style={Style.topSpace} />
           <View style={[Style.u142]}>
             <Text style={[Fonts.PoppinsBlack, Style.u142Text]}>Your Self Help to Legal Justice</Text>
             <Image style={Style.u142Img} source={u143Icon} resizeMode={'contain'}/>
@@ -114,7 +116,7 @@ class HomeScreen extends React.Component {
             </Text>
             <Text style={[Fonts.PoppinsRegular, Style.u150Text]}>></Text>
           </TouchableOpacity>
-          <View style={Style.space} />
+          <View style={Style.bottomSpace} />
         </ScrollView>
       </View>
     )

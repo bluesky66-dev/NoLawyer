@@ -10,7 +10,6 @@ import RegisterScreen from 'App/Containers/Register/RegisterScreen'
 import RegalJusticeScreen from 'App/Containers/RegalJustice/RegalJusticeScreen'
 import LoginScreen from 'App/Containers/Login/LoginScreen'
 import ForgetPasswordScreen from 'App/Containers/ForgetPassword/ForgetPasswordScreen'
-import HomeScreen from 'App/Containers/Home/HomeScreen'
 import ProfileScreen from 'App/Containers/Profile/ProfileScreen'
 import EmploymentScreen from 'App/Containers/Services/EmploymentScreen'
 import ProblemsScreen from 'App/Containers/Services/ProblemsScreen'
@@ -19,6 +18,7 @@ import SubscriptionScreen from 'App/Containers/Services/SubscriptionScreen'
 import HMRCScreen from 'App/Containers/Services/HMRCScreen'
 import VisasScreen from 'App/Containers/Services/VisasScreen'
 import SolveScreen from 'App/Containers/Solve/SolveScreen'
+import DrawerNavigator from './DrawerNavigator'
 
 /**
  * The root screen contains the application's navigation.
@@ -32,7 +32,7 @@ const StackNavigator = createStackNavigator(
     SplashScreen: SplashScreen,
     // The main application screen is our "ExampleScreen". Feel free to replace it with your
     // own screen and remove the example.
-    MainScreen: WelcomeScreen,
+    WelcomeScreen: WelcomeScreen,
     TermsScreen: TermsScreen,
     SelfHelpScreen: SelfHelpScreen,
     ResetPasswordScreen: ResetPasswordScreen,
@@ -41,7 +41,7 @@ const StackNavigator = createStackNavigator(
     RegalJusticeScreen: RegalJusticeScreen,
     LoginScreen: LoginScreen,
     ForgetPasswordScreen: ForgetPasswordScreen,
-    HomeScreen: HomeScreen,
+    MainScreen: DrawerNavigator,
     ProfileScreen: ProfileScreen,
     EmploymentScreen: EmploymentScreen,
     ProblemsScreen: ProblemsScreen,

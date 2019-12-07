@@ -79,7 +79,7 @@ class LoginScreen extends React.Component {
 
   _toHome() {
     const {navigate} = this.props.navigation;
-    navigate('HomeScreen');
+    navigate('MainScreen');
   }
   _toSignup() {
     const {navigate} = this.props.navigation;

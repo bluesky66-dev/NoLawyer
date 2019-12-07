@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
-import Style from './ProfileScreenStyle'
+import Style from './PrivacyScreenStyle'
 import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 
-class ProfileScreen extends React.Component {
+class PrivacyScreen extends React.Component {
   componentDidMount() {
   }
 
@@ -30,7 +30,7 @@ class ProfileScreen extends React.Component {
   }
 }
 
-ProfileScreen.propTypes = {
+PrivacyScreen.propTypes = {
   user: PropTypes.object,
   userIsLoading: PropTypes.bool,
   userErrorMessage: PropTypes.string,
@@ -52,4 +52,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfileScreen)
+)(PrivacyScreen)

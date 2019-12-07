@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { withNavigation } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import { Fonts, Helpers } from 'App/Theme'
 import Style from './HeaderStyle'
 import ProfileIcon from '@Assets/Images/user_profile_icon_u120.png'
 import BackIcon from '@Assets/Images/back_screenbtn_u174.png'
-import NavigationService from 'App/Services/NavigationService'
 
-export default class Header extends Component {
+class Header extends Component {
 
   constructor(props) {
     super(props)
@@ -40,11 +41,15 @@ export default class Header extends Component {
   }
 
   _openMenu() {
+    this.props.navigation.dispatch(DrawerActions.openDrawer());
   }
   _toHome() {
-    NavigationService.navigateAndReset('HomeScreen')
+    const {navigate} = this.props.navigation;
+    navigate('MainScreen');
   }
   _toProfile() {
-    NavigationService.navigateAndReset('ProfileScreen')
+    const {navigate} = this.props.navigation;
+    navigate('ProfileScreen');
   }
 }
+export default withNavigation(Header)
