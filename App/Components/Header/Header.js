@@ -29,6 +29,8 @@ class Header extends Component {
           onPress={() => this._openMenu()}
         >
           <View style={Style.listIcon}/>
+          <View style={[Style.listIcon, Style.listIconMTop]}/>
+          <View style={[Style.listIcon, Style.listIconMTop]}/>
         </TouchableOpacity>}
         <Text style={titleStyle ? titleStyle: [Fonts.PoppinsBlack, Style.logoTxt]}>{title ? title : 'nolawyer'}</Text>
         {!HideRight && <TouchableOpacity

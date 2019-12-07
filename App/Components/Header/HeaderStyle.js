@@ -17,36 +17,38 @@ export default StyleSheet.create({
     top: hp(18),
     left: wp(15),
     width: hp(19),
-    height: hp(19),
+    height: hp(60),
   },
   backIcon: {
     width: '100%',
-    height: '100%',
+    height: hp(19),
   },
   left: {
     position: 'absolute',
-    top: hp(18),
+    top: 0,
     left: wp(15),
-    width: hp(21),
-    height: hp(19),
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: Colors.primary
+    width: hp(20),
+    height: hp(60),
+    paddingTop: hp(20),
+    paddingBottom: hp(20),
   },
   listIcon: {
     height: 1,
-    width: hp(21),
+    width: hp(20),
     backgroundColor: Colors.primary,
+  },
+  listIconMTop: {
+    marginTop: hp(7)
   },
   right: {
     position: 'absolute',
-    top: hp(18),
+    top: 0,
     right: wp(20),
     width: hp(25),
-    height: hp(25),
+    height: hp(60),
   },
   rightImg: {
     width: '100%',
-    height: '100%',
+    height: hp(25),
   }
 })

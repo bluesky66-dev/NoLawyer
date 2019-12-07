@@ -22,7 +22,7 @@ class NotificationsScreen extends React.Component {
         <Header
           SubPage
           HideRight
-          title={'Notifications & Settings:'}
+          title={'Notifications & Settings'}
           titleStyle={[Fonts.PoppinsExtraBold, Style.title]}/>
       </View>
     )

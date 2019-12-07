@@ -22,7 +22,7 @@ class TermsConditionsScreen extends React.Component {
         <Header
           SubPage
           HideRight
-          title={'Terms & Conditions:'}
+          title={'Terms & Conditions'}
           titleStyle={[Fonts.PoppinsExtraBold, Style.title]}/>
         <ScrollView style={Style.u259}>
           <Text style={[Style.u259Text, Fonts.PoppinsRegular]}>

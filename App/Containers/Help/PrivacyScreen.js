@@ -22,7 +22,7 @@ class PrivacyScreen extends React.Component {
         <Header
           SubPage
           HideRight
-          title={'Privacy:    '}
+          title={'Privacy'}
           titleStyle={[Fonts.PoppinsExtraBold, Style.title]}/>
         <ScrollView style={Style.u259}>
           <Text style={[Style.u259Text, Fonts.PoppinsRegular]}>

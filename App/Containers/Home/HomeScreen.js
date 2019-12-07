@@ -124,27 +124,33 @@ class HomeScreen extends React.Component {
 
   _toEmployment() {
     const {navigate} = this.props.navigation;
-    navigate('EmploymentScreen');
+    // navigate('EmploymentScreen');
+    navigate('SolveScreen');
   }
   _toProblems() {
     const {navigate} = this.props.navigation;
-    navigate('ProblemsScreen');
+    // navigate('ProblemsScreen');
+    navigate('SolveScreen');
   }
   _toParking() {
     const {navigate} = this.props.navigation;
-    navigate('ParkingScreen');
+    // navigate('ParkingScreen');
+    navigate('SolveScreen');
   }
   _toSubscription() {
     const {navigate} = this.props.navigation;
-    navigate('SubscriptionScreen');
+    // navigate('SubscriptionScreen');
+    navigate('SolveScreen');
   }
   _toHMRC() {
     const {navigate} = this.props.navigation;
-    navigate('HMRCScreen');
+    // navigate('HMRCScreen');
+    navigate('SolveScreen');
   }
   _toVisas() {
     const {navigate} = this.props.navigation;
-    navigate('VisasScreen');
+    // navigate('VisasScreen');
+    navigate('SolveScreen');
   }
 }
 

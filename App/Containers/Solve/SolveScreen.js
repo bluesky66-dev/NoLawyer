@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform, Text, View, Button, TextInput, Image, ScrollView, TouchableOpacity } from 'react-native'
+import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
@@ -7,7 +7,7 @@ import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './SolveScreenStyle'
 import { Header } from '@Components'
 import emojiIcon from '@Assets/Images/emolji_u234.png'
-import { ApplicationStyles, Helpers, Images, Fonts } from 'App/Theme'
+import { Fonts, Helpers } from 'App/Theme'
 
 class SolveScreen extends React.Component {
   constructor(props) {
