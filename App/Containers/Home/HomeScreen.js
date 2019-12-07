@@ -44,6 +44,7 @@ class HomeScreen extends React.Component {
           </View>
           <TouchableOpacity
             style={[Helpers.row, Style.u147]}
+            onPress={() => this._toEmployment()}
           >
             <View style={[Style.u149]}>
               <Image style={Style.u149Img} source={u149Icon} resizeMode={'contain'}/>
@@ -55,6 +56,7 @@ class HomeScreen extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={[Helpers.row, Style.u147]}
+            onPress={() => this._toProblems()}
           >
             <View style={[Style.u149]}>
               <Image style={Style.u149Img} source={u154Icon} resizeMode={'contain'}/>
@@ -66,6 +68,7 @@ class HomeScreen extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={[Helpers.row, Style.u147]}
+            onPress={() => this._toParking()}
           >
             <View style={[Style.u149]}>
               <Image style={Style.u149Img} source={u158Icon} resizeMode={'contain'}/>
@@ -77,6 +80,7 @@ class HomeScreen extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={[Helpers.row, Style.u147]}
+            onPress={() => this._toSubscription()}
           >
             <View style={[Style.u149]}>
               <Image style={Style.u149Img} source={u162Icon} resizeMode={'contain'}/>
@@ -88,6 +92,7 @@ class HomeScreen extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={[Helpers.row, Style.u147]}
+            onPress={() => this._toHMRC()}
           >
             <View style={[Style.u149]}>
               <Image style={Style.u149Img} source={u169Icon} resizeMode={'contain'}/>
@@ -99,6 +104,7 @@ class HomeScreen extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={[Helpers.row, Style.u147]}
+            onPress={() => this._toVisas()}
           >
             <View style={[Style.u149]}>
               <Image style={Style.u149Img} source={u170Icon} resizeMode={'contain'}/>
@@ -114,8 +120,29 @@ class HomeScreen extends React.Component {
     )
   }
 
-  _fetchUser() {
-    this.props.fetchUser()
+  _toEmployment() {
+    const {navigate} = this.props.navigation;
+    navigate('EmploymentScreen');
+  }
+  _toProblems() {
+    const {navigate} = this.props.navigation;
+    navigate('ProblemsScreen');
+  }
+  _toParking() {
+    const {navigate} = this.props.navigation;
+    navigate('ParkingScreen');
+  }
+  _toSubscription() {
+    const {navigate} = this.props.navigation;
+    navigate('SubscriptionScreen');
+  }
+  _toHMRC() {
+    const {navigate} = this.props.navigation;
+    navigate('HMRCScreen');
+  }
+  _toVisas() {
+    const {navigate} = this.props.navigation;
+    navigate('VisasScreen');
   }
 }
 

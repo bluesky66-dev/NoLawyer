@@ -12,6 +12,13 @@ import LoginScreen from 'App/Containers/Login/LoginScreen'
 import ForgetPasswordScreen from 'App/Containers/ForgetPassword/ForgetPasswordScreen'
 import HomeScreen from 'App/Containers/Home/HomeScreen'
 import ProfileScreen from 'App/Containers/Profile/ProfileScreen'
+import EmploymentScreen from 'App/Containers/Services/EmploymentScreen'
+import ProblemsScreen from 'App/Containers/Services/ProblemsScreen'
+import ParkingScreen from 'App/Containers/Services/ParkingScreen'
+import SubscriptionScreen from 'App/Containers/Services/SubscriptionScreen'
+import HMRCScreen from 'App/Containers/Services/HMRCScreen'
+import VisasScreen from 'App/Containers/Services/VisasScreen'
+
 /**
  * The root screen contains the application's navigation.
  *
@@ -35,6 +42,12 @@ const StackNavigator = createStackNavigator(
     ForgetPasswordScreen: ForgetPasswordScreen,
     HomeScreen: HomeScreen,
     ProfileScreen: ProfileScreen,
+    EmploymentScreen: EmploymentScreen,
+    ProblemsScreen: ProblemsScreen,
+    ParkingScreen: ParkingScreen,
+    SubscriptionScreen: SubscriptionScreen,
+    HMRCScreen: HMRCScreen,
+    VisasScreen: VisasScreen,
   },
   {
     // By default the application will show the splash screen
