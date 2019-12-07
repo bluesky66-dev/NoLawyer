@@ -31,5 +31,72 @@ export default StyleSheet.create({
     marginLeft: wp(55),
     width: hp(75),
     height: hp(75)
-  }
+  },
+  u145: {
+    padding: hp(17),
+    borderColor: '#e8edf5',
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+  },
+  u145Text: {
+    fontWeight: '400',
+    fontSize: hp(12),
+    color: Colors.dark,
+  },
+  u146: {
+    paddingBottom: hp(17),
+    paddingTop: hp(17),
+    borderColor: '#e8edf5',
+    borderWidth: 1,
+    borderRadius: hp(15),
+    borderTopWidth: 0,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+  },
+  u146Text: {
+    fontWeight: '600',
+    fontSize: hp(16),
+    color: Colors.primary,
+  },
+  u147: {
+    alignItems: 'stretch',
+    marginTop: hp(30),
+    borderColor: '#e8edf5',
+    borderWidth: 1,
+    borderRadius: hp(15),
+  },
+  u147Text: {
+    paddingTop: hp(23),
+    paddingBottom: hp(23),
+    flex: 1,
+    alignSelf: 'center',
+    fontWeight: '600',
+    fontSize: hp(14),
+    color: Colors.dark,
+    paddingLeft: wp(10),
+  },
+  u149: {
+    alignContent: 'flex-start',
+    justifyContent: 'center',
+    width: wp(46),
+    borderRightWidth: 1,
+    borderColor: '#e8edf5',
+  },
+  u149Img: {
+    width: '100%',
+    height: hp(26),
+  },
+  u150Text: {
+    alignContent: 'flex-end',
+    alignSelf: 'center',
+    fontWeight: '900',
+    fontSize: hp(30),
+    color: Colors.dark,
+    paddingLeft: wp(22),
+    paddingRight: wp(22),
+  },
+  space: {
+    height: hp(66)
+  },
 })
