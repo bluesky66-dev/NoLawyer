@@ -31,7 +31,7 @@ class ProfileScreen extends React.Component {
           Helpers.fill,
         ]}
       >
-        <Header SubPage HideRight/>
+        <Header SubPage HideRight tilte={'Profile'}/>
         <View style={[Style.profile]}>
           <View style={Style.u240}>
             <Image style={Style.u240Img} source={UserImage} resizeMode={'contain'}/>

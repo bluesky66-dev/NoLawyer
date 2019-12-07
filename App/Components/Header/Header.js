@@ -15,7 +15,7 @@ class Header extends Component {
   }
 
   render() {
-    const { SubPage, HideRight } = this.props;
+    const { SubPage, HideRight, tilte } = this.props;
     return (
       <View style={[Helpers.rowCenter, Style.header]}>
         {SubPage && <TouchableOpacity
@@ -30,7 +30,7 @@ class Header extends Component {
         >
           <View style={Style.listIcon}/>
         </TouchableOpacity>}
-        <Text style={[Fonts.PoppinsBlack, Style.logoTxt]}>nolawyer</Text>
+        <Text style={[Fonts.PoppinsBlack, Style.logoTxt]}>{tilte ? tilte: 'nolawyer'}</Text>
         {!HideRight && <TouchableOpacity
           style={[Helpers.center, Style.right]}
           onPress={() => this._toProfile()}
