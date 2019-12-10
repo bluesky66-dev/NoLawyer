@@ -1,10 +1,23 @@
-import { StyleSheet } from 'react-native'
+// packages
+import { Dimensions, StyleSheet } from 'react-native'
 import { heightPercentage as hp, widthPercentage as wp } from '@Common'
+import ExtraDimensions from 'react-native-extra-dimensions-android'
 import { Colors } from 'App/Theme'
 
+// Retrieve initial screen's height
+let screenHeight = Dimensions.get('window').height;
+let statusBarHeight = ExtraDimensions.getStatusBarHeight();
+let softMenuBarHeight = ExtraDimensions.getSoftMenuBarHeight();
+let smartBarHeight = ExtraDimensions.getSmartBarHeight();
+
+
 export default StyleSheet.create({
+  rootWrapper: {
+    height: screenHeight - hp(50) - statusBarHeight - softMenuBarHeight - smartBarHeight,
+    position: 'relative'
+  },
   profile: {
-    height: hp(535),
+    // height: hp(535),
     paddingTop: hp(5),
     paddingLeft: wp(30),
     paddingRight: wp(30),

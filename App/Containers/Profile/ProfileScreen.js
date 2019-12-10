@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
@@ -28,9 +28,10 @@ class ProfileScreen extends React.Component {
     return (
       <ScrollView>
         <View
-          style={[
-            Helpers.fill,
-          ]}
+        style={[
+          Style.rootWrapper,
+          Helpers.fill,
+        ]}
         >
           <Header SubPage HideRight tilte={'Profile'}/>
           <View style={[Style.profile]}>
@@ -81,13 +82,13 @@ class ProfileScreen extends React.Component {
                 value={this.state.pinEmail}
               />
             </View>
-            <TouchableOpacity
-              style={[Helpers.center, Style.u21]}
-              onPress={() => this._updateProfile()}
-            >
-              <Text style={[Fonts.PoppinsMedium, Style.u21Text]}>Update Profile</Text>
-            </TouchableOpacity>
           </View>
+          <TouchableOpacity
+            style={[Helpers.center, Style.u21]}
+            onPress={() => this._updateProfile()}
+          >
+            <Text style={[Fonts.PoppinsMedium, Style.u21Text]}>Update Profile</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     )
