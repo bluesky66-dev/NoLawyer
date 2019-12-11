@@ -7,6 +7,7 @@ import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './HomeScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 import { Header } from '@Components'
+import { AssistantIds } from 'App/Common'
 import u143Icon from '@Assets/Images/u143onboarding.png'
 import u149Icon from '@Assets/Images/onboarding_icon2_u12.png'
 import u154Icon from '@Assets/Images/suspension_from_work_icon_u154.png'
@@ -125,32 +126,32 @@ class HomeScreen extends React.Component {
   _toEmployment() {
     const {navigate} = this.props.navigation;
     // navigate('EmploymentScreen');
-    navigate('SolveScreen');
+    navigate('SolveScreen', {assistantId: AssistantIds.EMPLOYMENT});
   }
   _toProblems() {
     const {navigate} = this.props.navigation;
     // navigate('ProblemsScreen');
-    navigate('SolveScreen');
+    navigate('SolveScreen', {assistantId: AssistantIds.PROBLEMS});
   }
   _toParking() {
     const {navigate} = this.props.navigation;
     // navigate('ParkingScreen');
-    navigate('SolveScreen');
+    navigate('SolveScreen', {assistantId: AssistantIds.PARKING});
   }
   _toSubscription() {
     const {navigate} = this.props.navigation;
     // navigate('SubscriptionScreen');
-    navigate('SolveScreen');
+    navigate('SolveScreen', {assistantId: AssistantIds.PARKING});
   }
   _toHMRC() {
     const {navigate} = this.props.navigation;
     // navigate('HMRCScreen');
-    navigate('SolveScreen');
+    navigate('SolveScreen', {assistantId: AssistantIds.HMRC});
   }
   _toVisas() {
     const {navigate} = this.props.navigation;
     // navigate('VisasScreen');
-    navigate('SolveScreen');
+    navigate('SolveScreen', {assistantId: AssistantIds.VISAS});
   }
 }
 

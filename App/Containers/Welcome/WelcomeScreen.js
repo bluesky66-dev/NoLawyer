@@ -34,7 +34,6 @@ class WelcomeScreen extends React.Component {
 
   render() {
     const {page} = this.state;
-    console.log('page  ===', page);
     return (
       <View
         style={[

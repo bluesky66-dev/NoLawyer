@@ -24,6 +24,12 @@ export default StyleSheet.create({
     width: '100%',
     alignItems: 'flex-end',
   },
+  answerItem: {
+    // alignItems: 'flex-start',
+  },
+  questionItem: {
+    // alignItems: 'flex-end',
+  },
   msg: {
     paddingLeft: wp(20),
     paddingRight: wp(20),
@@ -32,7 +38,7 @@ export default StyleSheet.create({
     fontWeight: '400',
     fontSize: hp(11),
     color: Colors.text,
-    borderRadius: hp(165),
+    borderRadius: hp(35),
   },
   shadow: {
     shadowColor: "#000",
@@ -46,10 +52,10 @@ export default StyleSheet.create({
     elevation: 3,
   },
   msgBig: {
-    width: wp(228),
+    maxWidth: wp(228),
   },
   msgSmall: {
-    width: wp(172),
+    maxWidth: wp(172),
   },
   msgBold: {
     fontWeight: '600',

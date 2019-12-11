@@ -1,0 +1,8 @@
+
+export default {
+  EMPLOYMENT: '41bf05c9-6843-49f9-8688-f843d8cb7a2c',
+  PROBLEMS: '12d38850-645b-4e7c-9b40-b6fb5ec751ff',
+  PARKING: '8016a8fb-d074-4f80-a975-191b627b0c92',
+  HMRC: 'bf22203a-22b6-45bb-8286-854061f1928d',
+  VISAS: 'e53bb416-ddb3-4ea9-9b46-f00de7595348',
+}

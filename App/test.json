@@ -1,0 +1,277 @@
+[
+  {
+    "generic": [
+      {
+        "response_type": "text",
+        "text": "\nNoLawyer! Your Self Help to Legal Justice"
+      },
+      {
+        "response_type": "text",
+        "text": "Trust and Confidence\n\nAt everystep of the way, nolawyer will point you to the right direction and help you find the answers to your legal questions with more options, and less headaches"
+      },
+      {
+        "response_type": "text",
+        "text": "What's Your Legal Issues?"
+      },
+      {
+        "title": "",
+        "options": [
+          {
+            "label": "Employment Tribunal Claim",
+            "value": {
+              "input": {
+                "text": "Employment Tribunal Claim"
+              }
+            }
+          },
+          {
+            "label": "Problems at Work",
+            "value": {
+              "input": {
+                "text": "Problems at Work"
+              }
+            }
+          },
+          {
+            "label": "Parking Ticket & PCN's",
+            "value": {
+              "input": {
+                "text": "Types of tickets"
+              }
+            }
+          },
+          {
+            "label": "Subscription Refund",
+            "value": {
+              "input": {
+                "text": "Subscription Refund"
+              }
+            }
+          }
+        ],
+        "response_type": "option"
+      },
+      {
+        "title": "",
+        "options": [
+          {
+            "label": "HMRC Tax and Fines",
+            "value": {
+              "input": {
+                "text": "HMRC Tax and Fines"
+              }
+            }
+          },
+          {
+            "label": "Visas and Immigration Problems",
+            "value": {
+              "input": {
+                "text": "Visas and Immigration Problems"
+              }
+            }
+          }
+        ],
+        "response_type": "option"
+      }
+    ],
+    "debug": {
+      "nodes_visited": [
+        {
+          "dialog_node": "node_2_1575242285976",
+          "title": "Anything else",
+          "conditions": "anything_else"
+        }
+      ],
+      "log_messages": [],
+      "branch_exited": true,
+      "branch_exited_reason": "completed"
+    },
+    "intents": [],
+    "entities": []
+  },
+  {
+    "generic": [
+      {
+        "response_type": "text",
+        "text": "\nNoLawyer! Your Self Help to Legal Justice"
+      },
+      {
+        "response_type": "text",
+        "text": "When you need a lawyer, you'll be surprise how much it cost to hire one. That is why nolawyer is created to provide a platform for legal information and self-help so you can get the right direction to justice that you truely deserve without giving up or breaking the bank. So find answers to your legal questions with more options, and less headaches"
+      },
+      {
+        "response_type": "text",
+        "text": "What's Your Legal Challenge?"
+      },
+      {
+        "title": "",
+        "options": [
+          {
+            "label": "Employment Tribunal Claim",
+            "value": {
+              "input": {
+                "text": "Employment Tribunal Claim"
+              }
+            }
+          },
+          {
+            "label": "Problems at Work",
+            "value": {
+              "input": {
+                "text": "Problems at Work"
+              }
+            }
+          },
+          {
+            "label": "Parking Ticket & PCN's",
+            "value": {
+              "input": {
+                "text": "Types of tickets"
+              }
+            }
+          },
+          {
+            "label": "Subscription Refund",
+            "value": {
+              "input": {
+                "text": "Subscription Refund"
+              }
+            }
+          }
+        ],
+        "response_type": "option"
+      },
+      {
+        "title": "",
+        "options": [
+          {
+            "label": "HMRC Tax and Fines",
+            "value": {
+              "input": {
+                "text": "HMRC Tax and Fines"
+              }
+            }
+          },
+          {
+            "label": "Visas and Immigration Problems",
+            "value": {
+              "input": {
+                "text": "Visas and Immigration Problems"
+              }
+            }
+          }
+        ],
+        "response_type": "option"
+      }
+    ],
+    "debug": {
+      "nodes_visited": [
+        {
+          "dialog_node": "node_2_1575242285976",
+          "title": "Anything else",
+          "conditions": "anything_else"
+        }
+      ],
+      "log_messages": [],
+      "branch_exited": true,
+      "branch_exited_reason": "completed"
+    },
+    "intents": [],
+    "entities": []
+  },
+  {
+    "generic": [
+      {
+        "response_type": "text",
+        "text": "\nNoLawyer! Your Self Help to Legal Justice"
+      },
+      {
+        "response_type": "text",
+        "text": "Free From Anxiety\n\nWhen you need a lawyer, you'll be surprise how much it cost to hire one, we've got your back, so you can relax and never let that legal dispute ruin your life."
+      },
+      {
+        "response_type": "text",
+        "text": "What's Your Legal Problem?"
+      },
+      {
+        "title": "",
+        "options": [
+          {
+            "label": "Employment Tribunal Claim",
+            "value": {
+              "input": {
+                "text": "Employment Tribunal Claim"
+              }
+            }
+          },
+          {
+            "label": "Problems at Work",
+            "value": {
+              "input": {
+                "text": "Problems at Work"
+              }
+            }
+          },
+          {
+            "label": "Parking Ticket & PCN's",
+            "value": {
+              "input": {
+                "text": "Types of tickets"
+              }
+            }
+          },
+          {
+            "label": "Subscription Refund",
+            "value": {
+              "input": {
+                "text": "Subscription Refund"
+              }
+            }
+          }
+        ],
+        "response_type": "option"
+      },
+      {
+        "title": "",
+        "options": [
+          {
+            "label": "HMRC Tax and Fines",
+            "value": {
+              "input": {
+                "text": "HMRC Tax and Fines"
+              }
+            }
+          },
+          {
+            "label": "Visas and Immigration Problems",
+            "value": {
+              "input": {
+                "text": "Visas and Immigration Problems"
+              }
+            }
+          }
+        ],
+        "response_type": "option"
+      }
+    ],
+    "debug": {
+      "nodes_visited": [
+        {
+          "dialog_node": "node_2_1575242285976",
+          "title": "Anything else",
+          "conditions": "anything_else"
+        }
+      ],
+      "log_messages": [],
+      "branch_exited": true,
+      "branch_exited_reason": "completed"
+    },
+    "intents": [
+      {
+        "intent": "Cancel_Subscriptions_Letters_Template",
+        "confidence": 0.2353922652846421
+      }
+    ],
+    "entities": []
+  }
+]
