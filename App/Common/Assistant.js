@@ -10,6 +10,24 @@ export default class Assistant {
     this.createSession()
   }
 
+  static init() {
+    fetch(url + '/?version=' + version, {
+      method: 'POST',
+      headers: {
+        Authorization: 'Basic ' + base64.encode('apikey:' + apikey),
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log('init response', responseJson)
+      })
+      .catch((error) => {
+        console.error('init error: ', error)
+      })
+  }
+
   createSession() {
     fetch(url + '/v2/assistants/' + this.assistantId + '/sessions?version=' + version, {
       method: 'POST',

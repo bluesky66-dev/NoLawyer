@@ -7,12 +7,14 @@ import SplashScreen from 'react-native-splash-screen'
 import StartupActions from 'App/Stores/Startup/Actions'
 import { PropTypes } from 'prop-types'
 import { Helpers } from 'App/Theme'
+import { EstonAssistant } from 'App/Common'
 
 class RootScreen extends Component {
   componentDidMount() {
     // Run the startup saga when the application is starting
     SplashScreen.hide();
-    this.props.startup()
+    this.props.startup();
+    EstonAssistant.init();
   }
 
   render() {
