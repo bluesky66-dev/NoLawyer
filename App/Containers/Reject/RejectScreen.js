@@ -1,12 +1,11 @@
 import React from 'react'
-import { TouchableOpacity, View, Text, Image } from 'react-native'
+import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './RejectScreenStyle'
-import { Helpers, Fonts } from 'App/Theme'
-import { PoppinsText } from '@Components'
+import { Fonts, Helpers } from 'App/Theme'
 import CopyrightIcon from '@Assets/Images/copyright_icon_u32.png'
 
 class RejectScreen extends React.Component {

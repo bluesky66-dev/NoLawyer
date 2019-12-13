@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import NavigationService from 'App/Services/NavigationService'
 import AppNavigator from 'App/Navigators/AppNavigator'
-import { View } from 'react-native'
+import { StatusBar, View } from 'react-native'
 import { connect } from 'react-redux'
 import SplashScreen from 'react-native-splash-screen'
 import StartupActions from 'App/Stores/Startup/Actions'
@@ -18,6 +18,7 @@ class RootScreen extends Component {
   render() {
     return (
       <View style={Helpers.fill}>
+        <StatusBar backgroundColor="white" barStyle="dark-content" />
         <AppNavigator
           // Initialize the NavigationService (see https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
           ref={(navigatorRef) => {

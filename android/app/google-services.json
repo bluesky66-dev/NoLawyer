@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "583570693591",
+    "firebase_url": "https://nolawyer-wxjolw.firebaseio.com",
+    "project_id": "nolawyer-wxjolw",
+    "storage_bucket": "nolawyer-wxjolw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583570693591:android:ec6ef41e942599e403bf92",
+        "android_client_info": {
+          "package_name": "com.nolawyer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583570693591-igsait5gpgaphjphb8g4p8s246ce4rpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSJLEug9fX-G7f5RsHG19xOf93lMvBC1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "583570693591-igsait5gpgaphjphb8g4p8s246ce4rpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

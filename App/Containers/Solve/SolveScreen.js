@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
@@ -7,7 +7,6 @@ import { liveInEurope } from 'App/Stores/Example/Selectors'
 import { EstonAssistant } from 'App/Common'
 import Style from './SolveScreenStyle'
 import { Header } from '@Components'
-import emojiIcon from '@Assets/Images/emolji_u234.png'
 import { Fonts, Helpers } from 'App/Theme'
 
 class SolveScreen extends React.Component {
@@ -117,7 +116,7 @@ class SolveScreen extends React.Component {
         style={[Style.msgItem, Style.msgMargin, Style.questionItem]}>
         <Text
           key={Math.round(Math.random() * 1000000).toString()}
-          style={[Fonts.PoppinsRegular, Style.msg, Style.msgBig, Style.shadow, Style.msgMargin]}>
+          style={[Fonts.PoppinsRegular, Style.msg, Style.msgBig, Style.shadow, Style.msgMargin, Style.questionTxt]}>
           {item.content}
         </Text>
       </View>
@@ -140,12 +139,12 @@ class SolveScreen extends React.Component {
           <View style={Style.bottomSpace} />
         </ScrollView>
         <View style={[Style.sendBox, Helpers.rowCross, Style.shadow]}>
-          <TouchableOpacity
-            style={[Style.emoji]}
-            onPress={() => this._toAction()}
-          >
-            <Image style={Style.emojiIcon} source={emojiIcon} resizeMode={'contain'}/>
-          </TouchableOpacity>
+          {/*<TouchableOpacity*/}
+          {/*  style={[Style.emoji]}*/}
+          {/*  onPress={() => this._toAction()}*/}
+          {/*>*/}
+          {/*  <Image style={Style.emojiIcon} source={emojiIcon} resizeMode={'contain'}/>*/}
+          {/*</TouchableOpacity>*/}
           <TextInput
             style={[Fonts.PoppinsRegular, Style.msgInput]}
             placeholder={'Type your message'}

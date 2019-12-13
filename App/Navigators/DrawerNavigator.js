@@ -37,7 +37,8 @@ const DrawerNavigator = createDrawerNavigator({
     SettingScreen: {
       screen: SettingScreen,
       navigationOptions: {
-        title: 'Notificiation & Settings'
+        title: 'Notificiation & Settings',
+        drawerLabel: () => null
       }
     },
   },

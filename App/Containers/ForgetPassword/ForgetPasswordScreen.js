@@ -1,11 +1,11 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image, TextInput, TouchableOpacity } from 'react-native'
+import { Platform, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ForgetPasswordScreenStyle'
-import { ApplicationStyles, Fonts, Helpers, Images, Metrics } from 'App/Theme'
+import { Fonts, Helpers } from 'App/Theme'
 
 /**
  * This is an example of a container component.

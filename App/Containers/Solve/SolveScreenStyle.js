@@ -23,12 +23,19 @@ export default StyleSheet.create({
   msgItem: {
     width: '100%',
     alignItems: 'flex-end',
+    paddingRight: wp(6),
+    paddingLeft: wp(6),
   },
   answerItem: {
     // alignItems: 'flex-start',
+    // alignItems: 'flex-end',
   },
   questionItem: {
-    // alignItems: 'flex-end',
+    alignItems: 'flex-start',
+  },
+  questionTxt: {
+    backgroundColor: Colors.primary,
+    color: Colors.white
   },
   msg: {
     paddingLeft: wp(20),
@@ -38,7 +45,7 @@ export default StyleSheet.create({
     fontWeight: '400',
     fontSize: hp(11),
     color: Colors.text,
-    borderRadius: hp(35),
+    borderRadius: hp(24),
   },
   shadow: {
     shadowColor: "#000",
@@ -52,7 +59,7 @@ export default StyleSheet.create({
     elevation: 3,
   },
   msgBig: {
-    maxWidth: wp(228),
+    maxWidth: wp(278),
   },
   msgSmall: {
     maxWidth: wp(172),
@@ -102,6 +109,7 @@ export default StyleSheet.create({
     fontSize: hp(13),
     color: Colors.text,
     marginRight: wp(7),
+    paddingLeft: wp(18),
   },
   sendBtn: {
     width: wp(62),
