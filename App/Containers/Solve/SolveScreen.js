@@ -1,6 +1,7 @@
 import React from 'react'
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
+import Hyperlink from 'react-native-hyperlink'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
@@ -40,11 +41,15 @@ class SolveScreen extends React.Component {
       return item.response_type === 'option'
     });
     let textItems = texts.map((item) => {
-      return  <Text
+      return <Hyperlink
         key={Math.round(Math.random() * 1000000).toString()}
-        style={[Fonts.PoppinsRegular, Style.msg, Style.msgBig, Style.shadow, Style.msgMargin]}>
+        linkStyle={Style.linkStyle}
+        linkDefault={ true }>
+        <Text
+          style={[Fonts.PoppinsRegular, Style.msg, Style.msgBig, Style.shadow, Style.msgMargin]}>
           {item.text}
-      </Text>
+        </Text>
+      </Hyperlink>
     });
     let optionItems = options.map((item) => {
       let itemOptions = item.options.map((option) => {
@@ -56,11 +61,27 @@ class SolveScreen extends React.Component {
           <Text style={[Fonts.PoppinsMedium, Style.actionText]}>{option.label}</Text>
         </TouchableOpacity>
       });
-      return <View
-        key={Math.round(Math.random() * 1000000).toString()}
-        style={[Style.msgItem, Style.msgMargin]}>
-        {itemOptions}
-      </View>
+      let itemTitle = <View />
+      if (item.title) {
+        itemTitle = <Hyperlink linkDefault={ true }>
+          <Text
+            style={[Fonts.PoppinsRegular, Style.msg, Style.msgBig, Style.shadow, Style.fontBold]}>
+            {item.title}
+          </Text>
+        </Hyperlink>
+      }
+      return [
+        <View
+          key={Math.round(Math.random() * 1000000).toString()}
+          style={[Style.msgItem, Style.msgMargin]}>
+          {itemTitle}
+        </View>,
+        <View
+          key={Math.round(Math.random() * 1000000).toString()}
+          style={[Style.msgItem, Style.msgMargin]}>
+          {itemOptions}
+        </View>
+      ]
     });
 
     return [
@@ -122,7 +143,7 @@ class SolveScreen extends React.Component {
       </View>
       return this.renderMsgItem(item.content)
     });
-    console.log('messages', JSON.stringify(this.state.messages));
+    // console.log('messages', JSON.stringify(this.state.messages));
     return (
       <View
         style={[

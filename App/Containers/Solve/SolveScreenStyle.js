@@ -47,6 +47,12 @@ export default StyleSheet.create({
     color: Colors.text,
     borderRadius: hp(24),
   },
+  fontBold: {
+    fontWeight: '700',
+  },
+  linkStyle: {
+    color: Colors.primary
+  },
   shadow: {
     shadowColor: "#000",
     backgroundColor: Colors.white,
