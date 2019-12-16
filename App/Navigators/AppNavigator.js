@@ -3,11 +3,12 @@ import { createAppContainer, createStackNavigator } from 'react-navigation'
 import WelcomeScreen from 'App/Containers/Welcome/WelcomeScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import TermsScreen from 'App/Containers/Terms/TermsScreen'
-import ResetPasswordScreen from 'App/Containers/ResetPassword/ResetPasswordScreen'
+import ResetPasswordScreen from 'App/Containers/Auth/ResetPasswordScreen'
 import RejectScreen from 'App/Containers/Reject/RejectScreen'
-import RegisterScreen from 'App/Containers/Register/RegisterScreen'
-import LoginScreen from 'App/Containers/Login/LoginScreen'
-import ForgetPasswordScreen from 'App/Containers/ForgetPassword/ForgetPasswordScreen'
+import RegisterScreen from 'App/Containers/Auth/RegisterScreen'
+import LoginScreen from 'App/Containers/Auth/LoginScreen'
+import AuthScreen from 'App/Containers/Auth/AuthScreen'
+import ForgetPasswordScreen from 'App/Containers/Auth/ForgetPasswordScreen'
 import ProfileScreen from 'App/Containers/Profile/ProfileScreen'
 import EmploymentScreen from 'App/Containers/Services/EmploymentScreen'
 import ProblemsScreen from 'App/Containers/Services/ProblemsScreen'
@@ -36,6 +37,7 @@ const StackNavigator = createStackNavigator(
     RejectScreen: RejectScreen,
     RegisterScreen: RegisterScreen,
     LoginScreen: LoginScreen,
+    AuthScreen: AuthScreen,
     ForgetPasswordScreen: ForgetPasswordScreen,
     MainScreen: DrawerNavigator,
     ProfileScreen: ProfileScreen,

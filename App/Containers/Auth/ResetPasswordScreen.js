@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
-import Style from './ResetPasswordScreenStyle'
+import Style from './AuthScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 
 class ResetPasswordScreen extends React.Component {
