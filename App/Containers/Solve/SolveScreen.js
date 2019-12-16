@@ -143,7 +143,8 @@ class SolveScreen extends React.Component {
       </View>
       return this.renderMsgItem(item.content)
     });
-    // console.log('messages', JSON.stringify(this.state.messages));
+    // console.log('messages', JSON.stringify(thi
+    // s.state.messages));
     return (
       <View
         style={[
