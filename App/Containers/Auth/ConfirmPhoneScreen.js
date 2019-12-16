@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
@@ -8,6 +8,7 @@ import Style from './AuthScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 import { ConfirmationCodeInput } from 'App/Components'
 import { widthPercentage as wp } from '@Common'
+
 class ConfirmPhoneScreen extends React.Component {
   constructor(props) {
     super(props)
