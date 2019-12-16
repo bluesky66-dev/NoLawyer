@@ -18,11 +18,23 @@ export default StyleSheet.create({
   },
   u240: {
     alignItems: 'center',
+    position: 'relative'
   },
   u240Img: {
     width: hp(80),
     height: hp(80),
     borderRadius: hp(40)
+  },
+  avatarBtn: {
+    position: 'absolute',
+    right: hp(0),
+    bottom: hp(0),
+    width: hp(40),
+    height: hp(30),
+  },
+  cameraIcon: {
+    width: '100%',
+    height: '100%'
   },
   u243: {
     marginTop: hp(43)

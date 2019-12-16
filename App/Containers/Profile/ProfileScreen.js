@@ -1,6 +1,8 @@
 import React from 'react'
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
+import ImagePicker from 'react-native-image-picker';
+import ImageResizer from 'react-native-image-resizer';
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
@@ -8,6 +10,7 @@ import { Header } from '@Components'
 import Style from './ProfileScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 import UserImage from '@Assets/Images/user_image_u242.png'
+import CameraIcon from '@Assets/Images/camera-icon.png'
 
 class ProfileScreen extends React.Component {
   constructor(props) {
@@ -18,6 +21,11 @@ class ProfileScreen extends React.Component {
       phone: '+444235851499',
       pinEmail: '',
       pinPass: '',
+      avatar: {
+        uri: '',
+        path: 'users'
+      },
+      isLoading: false,
     }
   }
 
@@ -34,10 +42,18 @@ class ProfileScreen extends React.Component {
         ]}
         >
           <Header SubPage HideRight tilte={'Profile'}/>
-          <View style={[Style.profile]}>
-            <View style={Style.u240}>
+          <View style={[Helpers.colCross, Style.profile]}>
+            <TouchableOpacity
+              onPress={() => this._handleChoosePhoto()}
+              style={Style.u240}>
               <Image style={Style.u240Img} source={UserImage} resizeMode={'contain'}/>
-            </View>
+              {/*<TouchableOpacity*/}
+              {/*  style={[Helpers.center, Style.avatarBtn]}*/}
+              {/*  onPress={() => this._updateAvatar()}*/}
+              {/*>*/}
+              {/*  <Image style={Style.cameraIcon} source={CameraIcon} resizeMode={'contain'}/>*/}
+              {/*</TouchableOpacity>*/}
+            </TouchableOpacity>
             <View style={Style.u243}>
               <TextInput
                 style={[Fonts.PoppinsRegular, Style.profileInput]}
@@ -96,6 +112,61 @@ class ProfileScreen extends React.Component {
 
   _updateProfile() {
   }
+  _handleChoosePhoto = () => {
+    let mainThis = this;
+    const options = {
+      title: 'Select Avatar',
+      mediaType: 'photo',
+      noData: true,
+      storageOptions: {
+        skipBackup: true,
+      },
+    };
+    try {
+      mainThis.setState({isLoading: true});
+      ImagePicker.showImagePicker(options, (response) => {
+        //console.log('======= Response = ', response);
+        if (response.didCancel) {
+          //console.log('======= User cancelled image picker');
+        } else if (response.error) {
+          //console.log('======= ImagePicker Error: ', response.error);
+        } else if (response.customButton) {
+          //console.log('======= User tapped custom button: ', response.customButton);
+        } else {
+          if (typeof response.uri !== 'undefined') {
+            ImageResizer.createResizedImage(response.uri, 300, 300, 'JPEG', 70).then(async (newImage) => {
+              //console.log('newImage ===', newImage);
+              try {
+                let image: any = {};
+                image.uri = newImage.uri;
+                //console.log('image.uri', image.uri);
+                // const uploadPath = await authActions.uploadFile(newImage.uri, 'users');
+                // console.log(uploadPath);
+                // modalThis.setState({isLoading: false});
+                // if (uploadPath) {
+                //   modalThis.props.onChange({avatar: uploadPath});
+                // }
+
+                mainThis.setState({avatar: image});
+              } catch (e) {
+                console.log(e.message);
+                mainThis.setState({isLoading: false});
+              }
+            }).catch((err) => {
+              console.log(err.message);
+              mainThis.setState({isLoading: false});
+            });
+          } else {
+            mainThis.setState({isLoading: false});
+          }
+        }
+        mainThis.setState({isLoading: false});
+      });
+    } catch (e) {
+      console.log(e.message);
+      mainThis.setState({isLoading: false});
+    }
+  };
 }
 
 ProfileScreen.propTypes = {

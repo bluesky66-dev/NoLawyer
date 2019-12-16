@@ -37,7 +37,7 @@ class ResetPasswordScreen extends React.Component {
           <View style={Style.u41}>
             <TextInput
               style={[Fonts.PoppinsRegular, Style.u41Input]}
-              placeholder={'6_digit_codetxt'}
+              placeholder={'6 digit code'}
               keyboardType={'numeric'}
               onChangeText={text => this.setState({verifyCode: text})}
               value={this.state.verifyCode}
