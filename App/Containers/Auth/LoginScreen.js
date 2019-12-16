@@ -62,7 +62,7 @@ class LoginScreen extends React.Component {
             <Text style={[Fonts.PoppinsRegular, Style.u49Text]}>Don't have an account?</Text>
             <TouchableOpacity
               style={[Helpers.center, Style.u50]}
-              onPress={() => this._toSignup()}
+              onPress={() => this._toRegister()}
             >
               <Text style={[Fonts.PoppinsBold, Style.u50Text]}>Sign up now!</Text>
             </TouchableOpacity>
@@ -75,6 +75,11 @@ class LoginScreen extends React.Component {
             <Text style={[Fonts.PoppinsRegular, Style.u51Text]}>Forgot password?</Text>
           </TouchableOpacity>
         </View>
+        <View style={[Helpers.center, Style.u148]}>
+          <Text style={[Fonts.PoppinsRegular, Style.u148Text]}>
+            By signing up, you're agreeing to nolawyer terms and conditions
+          </Text>
+        </View>
       </ScrollView>
     )
   }
@@ -83,7 +88,7 @@ class LoginScreen extends React.Component {
     const {navigate} = this.props.navigation;
     navigate('MainScreen');
   }
-  _toSignup() {
+  _toRegister() {
     const {navigate} = this.props.navigation;
     navigate('RegisterScreen');
   }

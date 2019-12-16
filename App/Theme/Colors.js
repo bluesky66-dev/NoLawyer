@@ -15,5 +15,5 @@ export default {
   secondary: '#ffc843',
   third: '#4b0fa8',
   success: '#25d366',
-  error: '#ff7166',
+  error: '#ea4335',
 }

@@ -8,6 +8,8 @@ import RejectScreen from 'App/Containers/Reject/RejectScreen'
 import RegisterScreen from 'App/Containers/Auth/RegisterScreen'
 import LoginScreen from 'App/Containers/Auth/LoginScreen'
 import AuthScreen from 'App/Containers/Auth/AuthScreen'
+import AuthPhoneScreen from 'App/Containers/Auth/AuthPhoneScreen'
+import ConfirmPhoneScreen from 'App/Containers/Auth/ConfirmPhoneScreen'
 import ForgetPasswordScreen from 'App/Containers/Auth/ForgetPasswordScreen'
 import ProfileScreen from 'App/Containers/Profile/ProfileScreen'
 import EmploymentScreen from 'App/Containers/Services/EmploymentScreen'
@@ -38,6 +40,8 @@ const StackNavigator = createStackNavigator(
     RegisterScreen: RegisterScreen,
     LoginScreen: LoginScreen,
     AuthScreen: AuthScreen,
+    AuthPhoneScreen: AuthPhoneScreen,
+    ConfirmPhoneScreen: ConfirmPhoneScreen,
     ForgetPasswordScreen: ForgetPasswordScreen,
     MainScreen: DrawerNavigator,
     ProfileScreen: ProfileScreen,

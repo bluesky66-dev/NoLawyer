@@ -7,12 +7,11 @@ import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './AuthScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 
-class AuthScreen extends React.Component {
+class AuthPhoneScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      email: '',
-      password: '',
+      phone: '',
     }
   }
 
@@ -32,45 +31,28 @@ class AuthScreen extends React.Component {
             <Text style={[Fonts.PoppinsBold, Style.u37Text]}>nolawyer</Text>
           </View>
           <View style={Style.u38}>
-            <Text style={[Fonts.PoppinsRegular, Style.u38Text]}>Welcome back to nolawyer</Text>
+            <Text style={[Fonts.PoppinsRegular, Style.u38Text]}>
+              Welcome to nolawyer
+            </Text>
             <Text style={[Fonts.PoppinsRegular, Style.u38Text, Style.u39Text]}>
               Create your nolawyer account here
             </Text>
           </View>
           <View style={Style.u41}>
-            <TouchableOpacity
-              style={[Helpers.center, Style.authButton, Style.authWithPhone]}
-              onPress={() => this._toAuthPhone()}
-            >
-              <Text style={[Fonts.PoppinsMedium, Style.u48Text, Style.darkText]}>
-                Connect with Phone number
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[Helpers.center, Style.authButton, Style.authWithFaceBook]}
-              onPress={() => this._toHome()}
-            >
-              <Text style={[Fonts.PoppinsMedium, Style.u48Text, Style.whiteText]}>
-                Connect with Facebook
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[Helpers.center, Style.authButton, Style.authWithGoogle]}
-              onPress={() => this._toHome()}
-            >
-              <Text style={[Fonts.PoppinsMedium, Style.u48Text, Style.whiteText]}>
-                Connect with Google
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[Helpers.center, Style.authButton, Style.authWithEmail]}
-              onPress={() => this._toRegister()}
-            >
-              <Text style={[Fonts.PoppinsMedium, Style.u48Text, Style.darkText]}>
-                Sign Up with Email
-              </Text>
-            </TouchableOpacity>
+            <TextInput
+              style={[Fonts.PoppinsRegular, Style.u41Input]}
+              placeholder={'Mobile number'}
+              keyboardType={'numeric'}
+              onChangeText={text => this.setState({phone: text})}
+              value={this.state.phone}
+            />
           </View>
+          <TouchableOpacity
+            style={[Helpers.center, Style.u48]}
+            onPress={() => this._toConfirmPhone()}
+          >
+            <Text style={[Fonts.PoppinsMedium, Style.u48Text]}>Connect with Mobile Number</Text>
+          </TouchableOpacity>
           <View style={[Helpers.colCross, Style.u43]}>
             <Text style={[Fonts.PoppinsRegular, Style.u43Text]}>Already have an Account?</Text>
             <TouchableOpacity
@@ -90,29 +72,17 @@ class AuthScreen extends React.Component {
     )
   }
 
-  _toHome() {
+  _toResetPassword() {
     const {navigate} = this.props.navigation;
-    navigate('MainScreen');
+    navigate('ResetPasswordScreen');
   }
-  _toAuthPhone() {
+  _toConfirmPhone() {
     const {navigate} = this.props.navigation;
-    navigate('AuthPhoneScreen');
-  }
-  _toRegister() {
-    const {navigate} = this.props.navigation;
-    navigate('RegisterScreen');
-  }
-  _toLogin() {
-    const {navigate} = this.props.navigation;
-    navigate('RegisterScreen');
-  }
-  _toForgetPassword() {
-    const {navigate} = this.props.navigation;
-    navigate('ForgetPasswordScreen');
+    navigate('ConfirmPhoneScreen');
   }
 }
 
-AuthScreen.propTypes = {
+AuthPhoneScreen.propTypes = {
   user: PropTypes.object,
   userIsLoading: PropTypes.bool,
   userErrorMessage: PropTypes.string,
@@ -134,4 +104,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AuthScreen)
+)(AuthPhoneScreen)

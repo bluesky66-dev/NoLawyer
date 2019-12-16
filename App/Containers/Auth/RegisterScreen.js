@@ -13,7 +13,6 @@ class RegisterScreen extends React.Component {
     this.state = {
       email: '',
       password: '',
-      phone: '',
     }
   }
   componentDidMount() {
@@ -51,13 +50,6 @@ class RegisterScreen extends React.Component {
               onChangeText={text => this.setState({password: text})}
               value={this.state.password}
             />
-            <TextInput
-              style={[Fonts.PoppinsRegular, Style.u41Input]}
-              placeholder={'Phone number'}
-              keyboardType={'numeric'}
-              onChangeText={text => this.setState({phone: text})}
-              value={this.state.phone}
-            />
           </View>
           <TouchableOpacity
             style={[Helpers.center, Style.u48]}
@@ -65,18 +57,20 @@ class RegisterScreen extends React.Component {
           >
             <Text style={[Fonts.PoppinsMedium, Style.u48Text]}>Sign Up</Text>
           </TouchableOpacity>
-          <View style={[Helpers.rowCross, Style.u49]}>
-            <Text style={[Fonts.PoppinsRegular, Style.u49Text]}>Already have an Account?</Text>
+          <View style={[Helpers.colCross, Style.u43]}>
+            <Text style={[Fonts.PoppinsRegular, Style.u43Text]}>Already have an Account?</Text>
             <TouchableOpacity
-              style={[Helpers.center, Style.u50]}
+              style={[Helpers.center, Style.u45]}
               onPress={() => this._toLogin()}
             >
-              <Text style={[Fonts.PoppinsBold, Style.u50Text]}>Login</Text>
+              <Text style={[Fonts.PoppinsBold, Style.u50Text]}>Login with Email</Text>
             </TouchableOpacity>
           </View>
-          <View style={Style.u51}>
-            <Text style={[Fonts.PoppinsRegular, Style.u51Text]}>By signing up, you're agreeing to nolawyer terms and conditions</Text>
-          </View>
+        </View>
+        <View style={[Helpers.center, Style.u148]}>
+          <Text style={[Fonts.PoppinsRegular, Style.u148Text]}>
+            By signing up, you're agreeing to nolawyer terms and conditions
+          </Text>
         </View>
       </ScrollView>
     )
