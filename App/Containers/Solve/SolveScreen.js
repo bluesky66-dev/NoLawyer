@@ -19,8 +19,10 @@ class SolveScreen extends React.Component {
       context: null,
     }
     const assistantId = props.navigation.getParam('assistantId', false);
+    this.title = props.navigation.getParam('title', '');
 
     this.assistant = false;
+
     if (assistantId) {
       this.assistant = new EstonAssistant(assistantId);
     }
@@ -152,6 +154,9 @@ class SolveScreen extends React.Component {
         ]}
       >
         <Header SubPage />
+        <View style={[Helpers.center, Style.u271]}>
+          <Text style={[Fonts.PoppinsSemiBold, Style.u271Text]}>{this.title}</Text>
+        </View>
         <ScrollView
           ref="scrollView"
           onContentSizeChange={(width,height) => this.refs.scrollView.scrollTo({y:height})}

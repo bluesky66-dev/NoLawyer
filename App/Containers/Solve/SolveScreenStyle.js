@@ -3,6 +3,20 @@ import { heightPercentage as hp, widthPercentage as wp } from '@Common'
 import { Colors } from 'App/Theme'
 
 export default StyleSheet.create({
+  u271: {
+    alignSelf: 'center',
+    marginTop: hp(8),
+    minWidth: wp(218),
+    backgroundColor: Colors.dark,
+    height: hp(30),
+    width: wp(218),
+    borderRadius: hp(5),
+  },
+  u271Text: {
+    fontWeight: '600',
+    fontSize: hp(11),
+    color: Colors.white,
+  },
   solve: {
     paddingLeft: wp(12),
     paddingRight: wp(12),

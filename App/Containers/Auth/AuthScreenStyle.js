@@ -58,11 +58,9 @@ export default StyleSheet.create({
     height: hp(35),
     width: wp(315),
     marginTop: hp(14),
-    borderWidth: hp(1),
-    borderColor: '#d0daeb',
   },
   confirmInput: {
-    borderColor: '#a9a9a9',
+    borderColor: '#d0daeb',
     width: wp(35),
     height: hp(25),
     color: Colors.dark,

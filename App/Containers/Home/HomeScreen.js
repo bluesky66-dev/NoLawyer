@@ -126,32 +126,32 @@ class HomeScreen extends React.Component {
   _toEmployment() {
     const {navigate} = this.props.navigation;
     // navigate('EmploymentScreen');
-    navigate('SolveScreen', {assistantId: AssistantIds.EMPLOYMENT});
+    navigate('SolveScreen', {assistantId: AssistantIds.EMPLOYMENT, title: 'Employment Tribunal Claim'});
   }
   _toProblems() {
     const {navigate} = this.props.navigation;
     // navigate('ProblemsScreen');
-    navigate('SolveScreen', {assistantId: AssistantIds.PROBLEMS});
+    navigate('SolveScreen', {assistantId: AssistantIds.PROBLEMS, title: 'Problems at Work'});
   }
   _toParking() {
     const {navigate} = this.props.navigation;
     // navigate('ParkingScreen');
-    navigate('SolveScreen', {assistantId: AssistantIds.PARKING});
+    navigate('SolveScreen', {assistantId: AssistantIds.PARKING, title: 'Parking Ticket & PCN\'s'});
   }
   _toSubscription() {
     const {navigate} = this.props.navigation;
     // navigate('SubscriptionScreen');
-    navigate('SolveScreen', {assistantId: AssistantIds.PARKING});
+    navigate('SolveScreen', {assistantId: AssistantIds.PARKING, title: 'Subscription Refund'});
   }
   _toHMRC() {
     const {navigate} = this.props.navigation;
     // navigate('HMRCScreen');
-    navigate('SolveScreen', {assistantId: AssistantIds.HMRC});
+    navigate('SolveScreen', {assistantId: AssistantIds.HMRC, title: 'HMRC Tax and Fines'});
   }
   _toVisas() {
     const {navigate} = this.props.navigation;
     // navigate('VisasScreen');
-    navigate('SolveScreen', {assistantId: AssistantIds.VISAS});
+    navigate('SolveScreen', {assistantId: AssistantIds.VISAS, title: 'Visas & Immigration Problems'});
   }
 }
 
