@@ -11,7 +11,7 @@ export default class Assistant {
   }
 
   static init() {
-    fetch(url + '/?version=' + version, {
+    fetch(url + '/v2/?version=' + version, {
       method: 'POST',
       headers: {
         Authorization: 'Basic ' + base64.encode('apikey:' + apikey),
