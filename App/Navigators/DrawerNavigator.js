@@ -4,6 +4,7 @@ import { DrawerMenu } from '@Components'
 import HomeScreen from 'App/Containers/Home/HomeScreen'
 import ProfileScreen from 'App/Containers/Profile/ProfileScreen'
 import TermsConditionsScreen from 'App/Containers/Help/TermsConditionsScreen'
+import UploadScreen from 'App/Containers/Help/UploadScreen'
 import PrivacyScreen from 'App/Containers/Help/PrivacyScreen'
 import SettingScreen from 'App/Containers/Help/NotificationsScreen'
 import { Colors, Metrics } from 'App/Theme'
@@ -22,6 +23,12 @@ const DrawerNavigator = createDrawerNavigator({
         title: 'My Profile'
       }
     },
+    UploadScreen: {
+      screen: UploadScreen,
+      navigationOptions: {
+        title: 'Upload Documents for nolawyer Review'
+      }
+    },
     TermsConditionsScreen: {
       screen: TermsConditionsScreen,
       navigationOptions: {
@@ -38,7 +45,7 @@ const DrawerNavigator = createDrawerNavigator({
       screen: SettingScreen,
       navigationOptions: {
         title: 'Notificiation & Settings',
-        drawerLabel: () => null
+        // drawerLabel: () => null
       }
     },
   },

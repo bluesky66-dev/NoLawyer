@@ -8,7 +8,7 @@ import { Header } from '@Components'
 import Style from './HelpScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 
-class NotificationsScreen extends React.Component {
+class UploadScreen extends React.Component {
   componentDidMount() {
   }
 
@@ -22,23 +22,23 @@ class NotificationsScreen extends React.Component {
         <Header
           SubPage
           HideRight
-          title={'Notifications & Settings'}
+          title={'Upload Documents for Review'}
           titleStyle={[Fonts.PoppinsExtraBold, Style.title]}/>
         <View style={[Helpers.fillCenter, Style.u308]}>
           <TouchableOpacity
             style={[Helpers.center, Style.helpButton, Style.primaryBtn]}
-            onPress={() => this._changePhone()}
+            onPress={() => this._openCamera()}
           >
             <Text style={[Fonts.PoppinsMedium, Style.u48Text, Style.whiteText]}>
-              Change Mobile Number
+              Take a picture
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[Helpers.center, Style.helpButton, Style.errorBtn]}
-            onPress={() => this._deleteAccount()}
+            onPress={() => this._pickDocument()}
           >
             <Text style={[Fonts.PoppinsMedium, Style.u48Text, Style.whiteText]}>
-              Delete Account
+              Upload document on your phone
             </Text>
           </TouchableOpacity>
         </View>
@@ -46,13 +46,13 @@ class NotificationsScreen extends React.Component {
     )
   }
 
-  _changePhone() {
+  _openCamera() {
   }
-  _deleteAccount() {
+  _pickDocument() {
   }
 }
 
-NotificationsScreen.propTypes = {
+UploadScreen.propTypes = {
   user: PropTypes.object,
   userIsLoading: PropTypes.bool,
   userErrorMessage: PropTypes.string,
@@ -74,4 +74,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NotificationsScreen)
+)(UploadScreen)

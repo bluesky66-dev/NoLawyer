@@ -19,4 +19,40 @@ export default StyleSheet.create({
     fontSize: hp(12),
     color: Colors.text,
   },
+  u308: {
+    paddingLeft: wp(30),
+    paddingRight: wp(30),
+  },
+  helpButton: {
+    height: hp(35),
+    width: '100%',
+    borderWidth: hp(1),
+    borderRadius: hp(5),
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+    marginBottom: hp(18),
+  },
+  primaryBtn: {
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary
+  },
+  errorBtn: {
+    backgroundColor: Colors.error,
+    borderColor: Colors.error
+  },
+  u48Text: {
+    fontWeight: '500',
+    fontSize: hp(14),
+    color: Colors.white,
+  },
+  whiteText: {
+    color: Colors.white
+  },
 })

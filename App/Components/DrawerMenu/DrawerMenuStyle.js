@@ -6,8 +6,7 @@ export default StyleSheet.create({
   drawerBox: {
   },
   u131: {
-    paddingLeft: wp(20),
-    paddingRight: wp(97),
+    width: '100%',
     paddingTop: hp(10),
     height: hp(127),
   },
@@ -17,6 +16,8 @@ export default StyleSheet.create({
     backgroundColor: '#e8edf5'
   },
   u131Text: {
+    width: '100%',
+    textAlign: 'center',
     fontWeight: '500',
     fontSize: hp(14),
     color: Colors.primary,
