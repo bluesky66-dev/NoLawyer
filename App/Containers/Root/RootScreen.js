@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import auth from '@react-native-firebase/auth';
 import NavigationService from 'App/Services/NavigationService'
 import AppNavigator from 'App/Navigators/AppNavigator'
 import { StatusBar, View } from 'react-native'
@@ -15,6 +16,16 @@ class RootScreen extends Component {
     SplashScreen.hide();
     this.props.startup();
     EstonAssistant.init();
+
+    const {navigate} = this.props.navigation;
+    this.authSubscription = auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        //console.log('onAuthStateChanged ==== user');
+      } else {
+        //console.log('onAuthStateChanged ==== else');
+        navigate('MainScreen');
+      }
+    });
   }
 
   render() {

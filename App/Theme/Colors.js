@@ -7,7 +7,7 @@
 
 export default {
   transparent: 'rgba(0,0,0,0)',
-  // Example colors:
+  // User colors:
   white: '#ffffff',
   text: '#333333',
   dark: '#0C1021',

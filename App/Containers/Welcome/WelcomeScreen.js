@@ -3,8 +3,8 @@ import { Image, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import ViewPager from '@react-native-community/viewpager';
 import { PropTypes } from 'prop-types'
-import ExampleActions from 'App/Stores/Example/Actions'
-import { liveInEurope } from 'App/Stores/Example/Selectors'
+import UserActions from 'App/Stores/User/Actions'
+import { liveInEurope } from 'App/Stores/User/Selectors'
 import Style from './WelcomeScreenStyle'
 import { Helpers } from 'App/Theme'
 import { PoppinsText } from '@Components'
@@ -129,14 +129,14 @@ WelcomeScreen.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.example.user,
-  userIsLoading: state.example.userIsLoading,
-  userErrorMessage: state.example.userErrorMessage,
+  user: state.user.user,
+  userIsLoading: state.user.userIsLoading,
+  userErrorMessage: state.user.userErrorMessage,
   liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(ExampleActions.fetchUser()),
+  fetchUser: () => dispatch(UserActions.fetchUser()),
 })
 
 export default connect(

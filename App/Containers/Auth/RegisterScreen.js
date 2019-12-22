@@ -2,10 +2,13 @@ import React from 'react'
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import ExampleActions from 'App/Stores/Example/Actions'
-import { liveInEurope } from 'App/Stores/Example/Selectors'
+import UserActions from 'App/Stores/User/Actions'
+import { liveInEurope } from 'App/Stores/User/Selectors'
 import Style from './AuthScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
+import validator from 'validator'
+import Toast from 'react-native-simple-toast'
+import auth from '@react-native-firebase/auth'
 
 class RegisterScreen extends React.Component {
   constructor(props) {
@@ -16,6 +19,27 @@ class RegisterScreen extends React.Component {
     }
   }
   componentDidMount() {
+  }
+
+  _register = async () => {
+    const {email, password} = this.state;
+    const {navigate} = this.props.navigation;
+
+    if (validator.isEmail(email)) {
+      Toast.show('Invalid email', Toast.SHORT);
+      return false;
+    }
+    if (validator.isLength(password, {min:8})) {
+      Toast.show('Use 8 characters or more for your password', Toast.SHORT);
+      return false;
+    }
+    try {
+      const userCredential = await auth().createUserWithEmailAndPassword(email, password);
+      console.log('userCredential', userCredential);
+      navigate('MainScreen');
+    } catch (e) {
+      console.error(e.message);
+    }
   }
 
   render() {
@@ -53,7 +77,7 @@ class RegisterScreen extends React.Component {
           </View>
           <TouchableOpacity
             style={[Helpers.center, Style.u48]}
-            onPress={() => this._toHome()}
+            onPress={() => this._register()}
           >
             <Text style={[Fonts.PoppinsMedium, Style.u48Text]}>Sign Up</Text>
           </TouchableOpacity>
@@ -80,10 +104,6 @@ class RegisterScreen extends React.Component {
     const {navigate} = this.props.navigation;
     navigate('LoginScreen');
   }
-  _toHome() {
-    const {navigate} = this.props.navigation;
-    navigate('MainScreen');
-  }
 }
 
 RegisterScreen.propTypes = {
@@ -95,14 +115,14 @@ RegisterScreen.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.example.user,
-  userIsLoading: state.example.userIsLoading,
-  userErrorMessage: state.example.userErrorMessage,
+  user: state.user.user,
+  userIsLoading: state.user.userIsLoading,
+  userErrorMessage: state.user.userErrorMessage,
   liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(ExampleActions.fetchUser()),
+  fetchUser: () => dispatch(UserActions.fetchUser()),
 })
 
 export default connect(

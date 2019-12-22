@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import ImagePicker from 'react-native-image-picker';
 import ImageResizer from 'react-native-image-resizer';
 import { PropTypes } from 'prop-types'
-import ExampleActions from 'App/Stores/Example/Actions'
-import { liveInEurope } from 'App/Stores/Example/Selectors'
+import UserActions from 'App/Stores/User/Actions'
+import { liveInEurope } from 'App/Stores/User/Selectors'
 import { Header } from '@Components'
 import Style from './ProfileScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
@@ -178,14 +178,14 @@ ProfileScreen.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.example.user,
-  userIsLoading: state.example.userIsLoading,
-  userErrorMessage: state.example.userErrorMessage,
+  user: state.user.user,
+  userIsLoading: state.user.userIsLoading,
+  userErrorMessage: state.user.userErrorMessage,
   liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(ExampleActions.fetchUser()),
+  fetchUser: () => dispatch(UserActions.fetchUser()),
 })
 
 export default connect(
