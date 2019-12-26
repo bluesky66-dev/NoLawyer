@@ -17,15 +17,15 @@ class RootScreen extends Component {
     this.props.startup();
     EstonAssistant.init();
 
-    const {navigate} = this.props.navigation;
-    this.authSubscription = auth().onAuthStateChanged(async (user) => {
-      if (user) {
-        //console.log('onAuthStateChanged ==== user');
-      } else {
-        //console.log('onAuthStateChanged ==== else');
-        navigate('MainScreen');
-      }
-    });
+    // const {navigate} = this.props.navigation;
+    // this.authSubscription = auth().onAuthStateChanged(async (user) => {
+    //   if (user) {
+    //     //console.log('onAuthStateChanged ==== user');
+    //   } else {
+    //     //console.log('onAuthStateChanged ==== else');
+    //     navigate('MainScreen');
+    //   }
+    // });
   }
 
   render() {
