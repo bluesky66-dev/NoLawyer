@@ -88,16 +88,16 @@ class ProfileScreen extends React.Component {
             <View style={Style.u248}>
               <TextInput
                 style={[Fonts.PoppinsRegular, Style.profileInput]}
-                placeholder={'Password'}
-                keyboardType={'default'}
+                placeholder={'Choose 6 digit code'}
+                keyboardType={'numeric'}
                 secureTextEntry={true}
                 onChangeText={text => this.setState({pinPass: text})}
                 value={this.state.pinPass}
               />
               <TextInput
                 style={[Fonts.PoppinsRegular, Style.profileInput]}
-                placeholder={'Email address'}
-                keyboardType={'email-address'}
+                placeholder={'Confirm your 6 digit code'}
+                keyboardType={'numeric'}
                 onChangeText={text => this.setState({pinEmail: text})}
                 value={this.state.pinEmail}
               />
@@ -119,7 +119,9 @@ class ProfileScreen extends React.Component {
   _handleChoosePhoto = () => {
     let mainThis = this;
     const options = {
-      title: 'Select Avatar',
+      title: 'Select Picture',
+      takePhotoButtonTitle: 'Take your picture',
+      chooseFromLibraryButtonTitle: 'Choose picture from phone',
       mediaType: 'photo',
       noData: true,
       storageOptions: {

@@ -52,22 +52,17 @@ class UploadScreen extends React.Component {
   _openCamera() {
     let mainThis = this;
     const options = {
-      mediaType: 'photo',
-      noData: true,
-      storageOptions: {
-        skipBackup: true,
-      },
     };
     try {
       mainThis.setState({isLoading: true});
       ImagePicker.launchCamera(options, (response) => {
-        //console.log('======= Response = ', response);
+        // console.log('======= Response = ', response);
         if (response.didCancel) {
-          //console.log('======= User cancelled image picker');
+          console.log('======= User cancelled image picker');
         } else if (response.error) {
-          //console.log('======= ImagePicker Error: ', response.error);
+          console.log('======= ImagePicker Error: ', response.error);
         } else if (response.customButton) {
-          //console.log('======= User tapped custom button: ', response.customButton);
+          console.log('======= User tapped custom button: ', response.customButton);
         } else {
           if (typeof response.uri !== 'undefined') {
             ImageResizer.createResizedImage(response.uri, 300, 300, 'JPEG', 70).then(async (newImage) => {
