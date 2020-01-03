@@ -20,8 +20,10 @@ class ResetPasswordScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <View
+      <View
+        style={[Helpers.fillColCross, Style.authWrapper]}
+      >
+        <ScrollView
           style={[
             Helpers.fillColCross,
             Style.u35
@@ -49,13 +51,13 @@ class ResetPasswordScreen extends React.Component {
           >
             <Text style={[Fonts.PoppinsMedium, Style.u48Text]}>Reset Password</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
         <View style={[Helpers.center, Style.u148]}>
           <Text style={[Fonts.PoppinsRegular, Style.u148Text]}>
             By signing up, you're agreeing to nolawyer terms and conditions
           </Text>
         </View>
-      </ScrollView>
+      </View>
     )
   }
 

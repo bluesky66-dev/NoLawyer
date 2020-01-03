@@ -1,13 +1,10 @@
 // packages
-import { Dimensions, StyleSheet, StatusBar } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { heightPercentage as hp, widthPercentage as wp } from '@Common'
 import { Colors } from 'App/Theme'
 
-let screenHeight = Dimensions.get('window').height;
-
 export default StyleSheet.create({
   rootWrapper: {
-    height: screenHeight - StatusBar.currentHeight,
     position: 'relative'
   },
   profile: {
@@ -64,11 +61,9 @@ export default StyleSheet.create({
     color: Colors.dark,
   },
   u248: {
-
+    paddingBottom: hp(16),
   },
   u21: {
-    position: 'absolute',
-    bottom: 0,
     width: wp(360),
     height: hp(50),
     backgroundColor: Colors.primary,

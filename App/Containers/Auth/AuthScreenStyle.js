@@ -1,12 +1,13 @@
-import { Dimensions, StatusBar, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { heightPercentage as hp, widthPercentage as wp } from '@Common'
 import { Colors } from 'App/Theme'
 
-let screenHeight = Dimensions.get('window').height;
-
 export default StyleSheet.create({
+  authWrapper: {
+
+  },
   u35: {
-    height: screenHeight - StatusBar.currentHeight,
+    flex: 1,
     paddingLeft: wp(30),
     paddingRight: wp(30),
   },
@@ -170,11 +171,9 @@ export default StyleSheet.create({
   u148: {
     width: '100%',
     height: hp(67),
-    position: 'absolute',
     paddingLeft: wp(44),
     paddingRight: wp(44),
     backgroundColor: Colors.primary,
-    bottom: 0,
   },
   u148Text: {
     textAlign: 'center',

@@ -34,8 +34,12 @@ class ProfileScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <View
+      <View
+        style={[
+          Helpers.fill,
+        ]}
+      >
+        <ScrollView
         style={[
           Style.rootWrapper,
           Helpers.fill,
@@ -99,14 +103,14 @@ class ProfileScreen extends React.Component {
               />
             </View>
           </View>
-          <TouchableOpacity
-            style={[Helpers.center, Style.u21]}
-            onPress={() => this._updateProfile()}
-          >
-            <Text style={[Fonts.PoppinsMedium, Style.u21Text]}>Update Profile</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+        </ScrollView>
+        <TouchableOpacity
+          style={[Helpers.center, Style.u21]}
+          onPress={() => this._updateProfile()}
+        >
+          <Text style={[Fonts.PoppinsMedium, Style.u21Text]}>Update Profile</Text>
+        </TouchableOpacity>
+      </View>
     )
   }
 

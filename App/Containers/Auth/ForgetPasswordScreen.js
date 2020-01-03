@@ -20,10 +20,12 @@ class ForgetPasswordScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <View
+      <View
+        style={[Helpers.fillColCross, Style.authWrapper]}
+      >
+        <ScrollView
           style={[
-            Helpers.fillColCross,
+            Helpers.fill,
             Style.u35
           ]}
         >
@@ -58,13 +60,13 @@ class ForgetPasswordScreen extends React.Component {
               <Text style={[Fonts.PoppinsBold, Style.u50Text]}>Login</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </ScrollView>
         <View style={[Helpers.center, Style.u148]}>
           <Text style={[Fonts.PoppinsRegular, Style.u148Text]}>
             By signing up, you're agreeing to nolawyer terms and conditions
           </Text>
         </View>
-      </ScrollView>
+      </View>
     )
   }
 
