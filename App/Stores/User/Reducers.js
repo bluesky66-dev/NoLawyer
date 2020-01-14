@@ -35,6 +35,11 @@ export const fetchUserFailure = (state, { errorMessage }) => ({
   userErrorMessage: errorMessage,
 })
 
+export const showLoading = (state, { isShow }) => ({
+  ...state,
+  userIsLoading: isShow,
+})
+
 /**
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
@@ -43,4 +48,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [UserTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
   [UserTypes.REGISTER_USER_SUCCESS]: registerUserSuccess,
   [UserTypes.FETCH_USER_FAILURE]: fetchUserFailure,
+  [UserTypes.SHOW_LOADING]: showLoading,
 })

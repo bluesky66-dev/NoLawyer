@@ -20,6 +20,7 @@ import { createActions } from 'reduxsauce'
  */
 const { Types, Creators } = createActions({
   fetchUser: null,
+  showLoading: ['isShow'],
   registerUser: ['email', 'password'],
   loginWithEmail: ['email', 'password'],
   fetchUserLoading: null,

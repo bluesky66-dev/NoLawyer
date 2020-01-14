@@ -8,6 +8,7 @@ import Spinner from 'react-native-loading-spinner-overlay'
 import Toast from 'react-native-root-toast'
 import SplashScreen from 'react-native-splash-screen'
 import StartupActions from 'App/Stores/Startup/Actions'
+import UserActions from 'App/Stores/User/Actions'
 import ToastActions from '../../Stores/Toast/Actions'
 import { PropTypes } from 'prop-types'
 import { Helpers } from 'App/Theme'
@@ -16,13 +17,15 @@ import { Helpers } from 'App/Theme'
 class RootScreen extends Component {
   componentDidMount() {
     // Run the startup saga when the application is starting
+    let { fetchUserSuccess } = this.props
     SplashScreen.hide();
     this.props.startup();
     // EstonAssistant.init();
 
-    this.authSubscription = auth().onAuthStateChanged(async (user) => {
+    this.authSubscription = auth().onAuthStateChanged((user) => {
       if (user) {
         // console.log('onAuthStateChanged ==== user');
+        fetchUserSuccess(user);
         NavigationService.navigateAndReset('MainScreen')
       } else {
         // console.log('onAuthStateChanged ==== else');
@@ -39,7 +42,7 @@ class RootScreen extends Component {
 
   render() {
     let {userIsLoading, showToast, toastMessage} = this.props;
-    console.log('userIsLoading ===', userIsLoading)
+    // console.log('userIsLoading ===', userIsLoading)
     return (
       <View style={Helpers.fill}>
         <StatusBar backgroundColor="white" barStyle="dark-content" />
@@ -73,6 +76,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchUserSuccess: (user) => dispatch(UserActions.fetchUserSuccess(user)),
   startup: () => dispatch(StartupActions.startup()),
   hideToast: () => dispatch(ToastActions.hideToast()),
 })

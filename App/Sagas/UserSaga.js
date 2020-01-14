@@ -1,9 +1,7 @@
-import { put, call } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import UserActions from 'App/Stores/User/Actions'
 import ToastActions from 'App/Stores/Toast/Actions'
 import { userService } from 'App/Services/UserService'
-import auth from '@react-native-firebase/auth'
-import NavigationService from '../Services/NavigationService'
 
 /**
  * A saga can contain multiple functions.
