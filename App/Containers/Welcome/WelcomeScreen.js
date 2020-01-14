@@ -121,22 +121,12 @@ class WelcomeScreen extends React.Component {
 }
 
 WelcomeScreen.propTypes = {
-  user: PropTypes.object,
-  userIsLoading: PropTypes.bool,
-  userErrorMessage: PropTypes.string,
-  fetchUser: PropTypes.func,
-  liveInEurope: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user.user,
-  userIsLoading: state.user.userIsLoading,
-  userErrorMessage: state.user.userErrorMessage,
-  liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(UserActions.fetchUser()),
 })
 
 export default connect(

@@ -1,7 +1,7 @@
 import { all, takeLatest } from 'redux-saga/effects'
 import { UserTypes } from 'App/Stores/User/Actions'
 import { StartupTypes } from 'App/Stores/Startup/Actions'
-import { fetchUser, registerUser } from './UserSaga'
+import { fetchUser, registerUser, loginWithEmail } from './UserSaga'
 import { startup } from './StartupSaga'
 
 export default function* root() {
@@ -14,5 +14,6 @@ export default function* root() {
     // Call `fetchUser()` when a `FETCH_USER` action is triggered
     takeLatest(UserTypes.FETCH_USER, fetchUser),
     takeLatest(UserTypes.REGISTER_USER, registerUser),
+    takeLatest(UserTypes.LOGIN_WITH_EMAIL, loginWithEmail),
   ])
 }

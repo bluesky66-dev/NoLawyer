@@ -39,12 +39,28 @@ export function* registerUser({email, password}) {
     }
   } catch (e) {
     let errorMessage = e.message.replace(e.code, '').replace('[]', '');
-    console.log('regiser error ==', errorMessage);
+    // console.log('register error ==', errorMessage);
     yield put(UserActions.fetchUserFailure(errorMessage));
     yield put(
       ToastActions.showToast(errorMessage)
     )
   }
+}
 
+export function* loginWithEmail({email, password}) {
+  yield put(UserActions.fetchUserLoading())
+
+  try {
+    const userCredential = yield call(userService.loginWithEmailAndPassword, email, password);
+    if (userCredential) {
+      ToastActions.showToast('You have logged in successfully!')
+      yield put(UserActions.fetchUserSuccess(userCredential))
+    }
+  } catch (e) {
+    let errorMessage = e.message.replace(e.code, '').replace('[]', '');
+    // console.log('login error ==', errorMessage);
+    yield put(UserActions.fetchUserFailure(errorMessage));
+    yield put(ToastActions.showToast(errorMessage))
+  }
 }
 

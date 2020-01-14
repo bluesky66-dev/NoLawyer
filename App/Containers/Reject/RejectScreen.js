@@ -1,9 +1,6 @@
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
-import { PropTypes } from 'prop-types'
-import UserActions from 'App/Stores/User/Actions'
-import { liveInEurope } from 'App/Stores/User/Selectors'
 import Style from './RejectScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 import CopyrightIcon from '@Assets/Images/copyright_icon_u32.png'
@@ -57,22 +54,12 @@ class RejectScreen extends React.Component {
 }
 
 RejectScreen.propTypes = {
-  user: PropTypes.object,
-  userIsLoading: PropTypes.bool,
-  userErrorMessage: PropTypes.string,
-  fetchUser: PropTypes.func,
-  liveInEurope: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user.user,
-  userIsLoading: state.user.userIsLoading,
-  userErrorMessage: state.user.userErrorMessage,
-  liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(UserActions.fetchUser()),
 })
 
 export default connect(

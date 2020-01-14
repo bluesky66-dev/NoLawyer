@@ -49,7 +49,13 @@ function registerUser(email, password) {
   return auth().createUserWithEmailAndPassword(email, password);
 }
 
+function loginWithEmailAndPassword(email, password) {
+  console.log('email, password', email, password);
+  return auth().signInWithEmailAndPassword(email, password);
+}
+
 export const userService = {
   fetchUser,
   registerUser,
+  loginWithEmailAndPassword,
 }

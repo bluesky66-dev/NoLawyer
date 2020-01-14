@@ -1,11 +1,11 @@
 import React from 'react'
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
-import { PropTypes } from 'prop-types'
 import UserActions from 'App/Stores/User/Actions'
-import { liveInEurope } from 'App/Stores/User/Selectors'
 import Style from './AuthScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
+import ToastActions from '../../Stores/Toast/Actions'
+import validator from 'validator'
 
 class LoginScreen extends React.Component {
   constructor(props) {
@@ -17,6 +17,22 @@ class LoginScreen extends React.Component {
   }
 
   componentDidMount() {
+  }
+
+
+  _onLogin() {
+    const { email, password } = this.state;
+    console.log('email, password ', email, password )
+    const { showToast, loginWithEmail } = this.props;
+    if (!validator.isEmail(email)) {
+      showToast('Invalid email');
+      return false;
+    }
+    if (!validator.isLength(password, { min: 8 })) {
+      showToast('Use 8 characters or more for your password');
+      return false;
+    }
+    loginWithEmail(email, password);
   }
 
   render() {
@@ -56,7 +72,7 @@ class LoginScreen extends React.Component {
           </View>
           <TouchableOpacity
             style={[Helpers.center, Style.u48]}
-            onPress={() => this._toHome()}
+            onPress={() => this._onLogin()}
           >
             <Text style={[Fonts.PoppinsMedium, Style.u48Text]}>Log In Securely</Text>
           </TouchableOpacity>
@@ -86,10 +102,6 @@ class LoginScreen extends React.Component {
     )
   }
 
-  _toHome() {
-    const {navigate} = this.props.navigation;
-    navigate('MainScreen');
-  }
   _toRegister() {
     const {navigate} = this.props.navigation;
     navigate('RegisterScreen');
@@ -101,22 +113,14 @@ class LoginScreen extends React.Component {
 }
 
 LoginScreen.propTypes = {
-  user: PropTypes.object,
-  userIsLoading: PropTypes.bool,
-  userErrorMessage: PropTypes.string,
-  fetchUser: PropTypes.func,
-  liveInEurope: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user.user,
-  userIsLoading: state.user.userIsLoading,
-  userErrorMessage: state.user.userErrorMessage,
-  liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(UserActions.fetchUser()),
+  loginWithEmail: (email, password) => dispatch(UserActions.loginWithEmail(email, password)),
+  showToast: (text) => dispatch(ToastActions.showToast(text)),
 })
 
 export default connect(

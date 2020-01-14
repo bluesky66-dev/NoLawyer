@@ -1,12 +1,9 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image, ScrollView, TouchableOpacity } from 'react-native'
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
-import { PropTypes } from 'prop-types'
-import UserActions from 'App/Stores/User/Actions'
-import { liveInEurope } from 'App/Stores/User/Selectors'
 import Style from './ServicesScreenStyle'
 import { Header } from '@Components'
-import { ApplicationStyles, Helpers, Images, Fonts } from 'App/Theme'
+import { Fonts, Helpers } from 'App/Theme'
 
 class EmploymentScreen extends React.Component {
   componentDidMount() {
@@ -83,22 +80,12 @@ class EmploymentScreen extends React.Component {
 }
 
 EmploymentScreen.propTypes = {
-  user: PropTypes.object,
-  userIsLoading: PropTypes.bool,
-  userErrorMessage: PropTypes.string,
-  fetchUser: PropTypes.func,
-  liveInEurope: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user.user,
-  userIsLoading: state.user.userIsLoading,
-  userErrorMessage: state.user.userErrorMessage,
-  liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(UserActions.fetchUser()),
 })
 
 export default connect(

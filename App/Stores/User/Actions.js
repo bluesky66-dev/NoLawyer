@@ -21,6 +21,7 @@ import { createActions } from 'reduxsauce'
 const { Types, Creators } = createActions({
   fetchUser: null,
   registerUser: ['email', 'password'],
+  loginWithEmail: ['email', 'password'],
   fetchUserLoading: null,
   fetchUserSuccess: ['user'],
   registerUserSuccess: null,

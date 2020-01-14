@@ -1,16 +1,12 @@
 import React from 'react'
 import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
-import ImagePicker from 'react-native-image-picker';
-import ImageResizer from 'react-native-image-resizer';
-import { PropTypes } from 'prop-types'
-import UserActions from 'App/Stores/User/Actions'
-import { liveInEurope } from 'App/Stores/User/Selectors'
+import ImagePicker from 'react-native-image-picker'
+import ImageResizer from 'react-native-image-resizer'
 import { Header } from '@Components'
 import Style from './ProfileScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 import UserImage from '@Assets/Images/user_image_u242.png'
-import CameraIcon from '@Assets/Images/camera-icon.png'
 
 class ProfileScreen extends React.Component {
   constructor(props) {
@@ -176,22 +172,12 @@ class ProfileScreen extends React.Component {
 }
 
 ProfileScreen.propTypes = {
-  user: PropTypes.object,
-  userIsLoading: PropTypes.bool,
-  userErrorMessage: PropTypes.string,
-  fetchUser: PropTypes.func,
-  liveInEurope: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user.user,
-  userIsLoading: state.user.userIsLoading,
-  userErrorMessage: state.user.userErrorMessage,
-  liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(UserActions.fetchUser()),
 })
 
 export default connect(

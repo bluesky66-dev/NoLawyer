@@ -1,9 +1,6 @@
 import React from 'react'
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
-import { PropTypes } from 'prop-types'
-import UserActions from 'App/Stores/User/Actions'
-import { liveInEurope } from 'App/Stores/User/Selectors'
 import Style from './AuthScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 
@@ -106,7 +103,7 @@ class AuthScreen extends React.Component {
   }
   _toLogin() {
     const {navigate} = this.props.navigation;
-    navigate('RegisterScreen');
+    navigate('LoginScreen');
   }
   _toForgetPassword() {
     const {navigate} = this.props.navigation;
@@ -115,22 +112,12 @@ class AuthScreen extends React.Component {
 }
 
 AuthScreen.propTypes = {
-  user: PropTypes.object,
-  userIsLoading: PropTypes.bool,
-  userErrorMessage: PropTypes.string,
-  fetchUser: PropTypes.func,
-  liveInEurope: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user.user,
-  userIsLoading: state.user.userIsLoading,
-  userErrorMessage: state.user.userErrorMessage,
-  liveInEurope: liveInEurope(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(UserActions.fetchUser()),
 })
 
 export default connect(
