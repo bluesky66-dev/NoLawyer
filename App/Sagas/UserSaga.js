@@ -31,14 +31,18 @@ export function* registerUser({email, password}) {
   yield put(UserActions.fetchUserLoading())
 
   try {
-    const userCredential = yield call(auth().createUserWithEmailAndPassword, email, password);
+    const userCredential = yield call(userService.registerUser, email, password);
     if (userCredential) {
+      ToastActions.showToast('You have registered successfully!')
       yield put(UserActions.registerUserSuccess())
-      NavigationService.navigateAndReset('MainScreen')
+      // NavigationService.navigateAndReset('LoginScreen')
     }
   } catch (e) {
+    let errorMessage = e.message.replace(e.code, '').replace('[]', '');
+    console.log('regiser error ==', errorMessage);
+    yield put(UserActions.fetchUserFailure(errorMessage));
     yield put(
-      ToastActions.showToast(e.message)
+      ToastActions.showToast(errorMessage)
     )
   }
 

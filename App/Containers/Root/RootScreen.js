@@ -26,6 +26,7 @@ class RootScreen extends Component {
         NavigationService.navigateAndReset('MainScreen')
       } else {
         // console.log('onAuthStateChanged ==== else');
+        // NavigationService.navigateAndReset('AuthScreen')
       }
     });
   }
@@ -33,11 +34,12 @@ class RootScreen extends Component {
   _hideToast = () => {
     setTimeout(() => {
       this.props.hideToast();
-    }, 1500)
+    }, 3000)
   }
 
   render() {
     let {userIsLoading, showToast, toastMessage} = this.props;
+    console.log('userIsLoading ===', userIsLoading)
     return (
       <View style={Helpers.fill}>
         <StatusBar backgroundColor="white" barStyle="dark-content" />
