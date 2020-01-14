@@ -1,10 +1,7 @@
 import React from 'react'
 import { Image, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
-import ViewPager from '@react-native-community/viewpager';
-import { PropTypes } from 'prop-types'
-import UserActions from 'App/Stores/User/Actions'
-import { liveInEurope } from 'App/Stores/User/Selectors'
+import ViewPager from '@react-native-community/viewpager'
 import Style from './WelcomeScreenStyle'
 import { Helpers } from 'App/Theme'
 import { PoppinsText } from '@Components'
