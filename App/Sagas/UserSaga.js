@@ -1,6 +1,9 @@
 import { put, call } from 'redux-saga/effects'
 import UserActions from 'App/Stores/User/Actions'
+import ToastActions from 'App/Stores/Toast/Actions'
 import { userService } from 'App/Services/UserService'
+import auth from '@react-native-firebase/auth'
+import NavigationService from '../Services/NavigationService'
 
 /**
  * A saga can contain multiple functions.
@@ -23,3 +26,21 @@ export function* fetchUser() {
     )
   }
 }
+
+export function* registerUser({email, password}) {
+  yield put(UserActions.fetchUserLoading())
+
+  try {
+    const userCredential = yield call(auth().createUserWithEmailAndPassword, email, password);
+    if (userCredential) {
+      yield put(UserActions.registerUserSuccess())
+      NavigationService.navigateAndReset('MainScreen')
+    }
+  } catch (e) {
+    yield put(
+      ToastActions.showToast(e.message)
+    )
+  }
+
+}
+

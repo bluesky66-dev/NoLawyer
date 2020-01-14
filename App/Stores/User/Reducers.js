@@ -21,6 +21,13 @@ export const fetchUserSuccess = (state, { user }) => ({
   userErrorMessage: null,
 })
 
+export const registerUserSuccess = (state) => ({
+  ...state,
+  user: {},
+  userIsLoading: false,
+  userErrorMessage: null,
+})
+
 export const fetchUserFailure = (state, { errorMessage }) => ({
   ...state,
   user: {},
@@ -34,5 +41,6 @@ export const fetchUserFailure = (state, { errorMessage }) => ({
 export const reducer = createReducer(INITIAL_STATE, {
   [UserTypes.FETCH_USER_LOADING]: fetchUserLoading,
   [UserTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
+  [UserTypes.REGISTER_USER_SUCCESS]: registerUserSuccess,
   [UserTypes.FETCH_USER_FAILURE]: fetchUserFailure,
 })

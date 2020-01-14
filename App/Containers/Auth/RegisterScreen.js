@@ -3,12 +3,12 @@ import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import UserActions from 'App/Stores/User/Actions'
+import ToastActions from 'App/Stores/Toast/Actions'
 import { liveInEurope } from 'App/Stores/User/Selectors'
 import Style from './AuthScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
 import validator from 'validator'
 import Toast from 'react-native-simple-toast'
-import auth from '@react-native-firebase/auth'
 
 class RegisterScreen extends React.Component {
   constructor(props) {
@@ -22,24 +22,20 @@ class RegisterScreen extends React.Component {
   }
 
   _register = async () => {
-    const {email, password} = this.state;
-    const {navigate} = this.props.navigation;
+    const { email, password } = this.state;
+    const { showToast, registerUser } = this.props;
+    // const { navigate } = this.props.navigation;
 
-    if (validator.isEmail(email)) {
-      Toast.show('Invalid email', Toast.SHORT);
+    if (!validator.isEmail(email)) {
+      showToast('Invalid email 123');
       return false;
     }
-    if (validator.isLength(password, {min:8})) {
-      Toast.show('Use 8 characters or more for your password', Toast.SHORT);
+    if (!validator.isLength(password, { min: 8 })) {
+      showToast('Use 8 characters or more for your password');
       return false;
     }
-    try {
-      const userCredential = await auth().createUserWithEmailAndPassword(email, password);
-      console.log('userCredential', userCredential);
-      navigate('MainScreen');
-    } catch (e) {
-      console.error(e.message);
-    }
+    registerUser(email, password);
+
   }
 
   render() {
@@ -125,6 +121,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: () => dispatch(UserActions.fetchUser()),
+  registerUser: (email, password) => dispatch(UserActions.registerUser(email, password)),
+  showToast: (text) => dispatch(ToastActions.showToast(text)),
 })
 
 export default connect(
