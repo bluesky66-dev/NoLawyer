@@ -1,8 +1,12 @@
 import React from 'react'
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
+import auth from '@react-native-firebase/auth';
+import { GoogleSignin } from '@react-native-community/google-signin';
 import Style from './AuthScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
+import ToastActions from '../../Stores/Toast/Actions'
+import UserActions from '../../Stores/User/Actions'
 
 class AuthScreen extends React.Component {
   constructor(props) {
@@ -14,6 +18,26 @@ class AuthScreen extends React.Component {
   }
 
   componentDidMount() {
+  }
+
+  async _authWithGoogle() {
+    let { showLoading, showToast } = this.props;
+    showLoading(true);
+    try {
+      await GoogleSignin.configure({
+        scopes: [],
+        webClientId: '583570693591-igsait5gpgaphjphb8g4p8s246ce4rpf.apps.googleusercontent.com', // required
+      });
+      const { accessToken, idToken } = await GoogleSignin.signIn();
+      const credential = auth.GoogleAuthProvider.credential(idToken, accessToken);
+      await auth().signInWithCredential(credential);
+      showLoading(false);
+    } catch (e) {
+      let errorMessage = e.message.replace(e.code, '').replace('[]', '');
+      console.log('auth phone ==', errorMessage);
+      showLoading(false);
+      showToast(errorMessage)
+    }
   }
 
   render() {
@@ -55,7 +79,7 @@ class AuthScreen extends React.Component {
             </TouchableOpacity>
             <TouchableOpacity
               style={[Helpers.center, Style.authButton, Style.authWithGoogle]}
-              onPress={() => this._toHome()}
+              onPress={() => this._authWithGoogle()}
             >
               <Text style={[Fonts.PoppinsMedium, Style.u48Text, Style.whiteText]}>
                 Connect with Google
@@ -105,10 +129,6 @@ class AuthScreen extends React.Component {
     const {navigate} = this.props.navigation;
     navigate('LoginScreen');
   }
-  _toForgetPassword() {
-    const {navigate} = this.props.navigation;
-    navigate('ForgetPasswordScreen');
-  }
 }
 
 AuthScreen.propTypes = {
@@ -118,6 +138,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  showToast: (text) => dispatch(ToastActions.showToast(text)),
+  showLoading: (isShow) => dispatch(UserActions.showLoading(isShow)),
 })
 
 export default connect(

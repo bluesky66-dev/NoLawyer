@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "583570693591-ii6e7lao71tbl130ugempo7c4ltkkook.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nolawyer",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "583570693591-4qn9abih2mpa36k22b596iclr3pgg0rf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nolawyer",
+            "certificate_hash": "c5e2916d5d42eae1af077369caf5ae58658bce57"
+          }
+        },
+        {
           "client_id": "583570693591-igsait5gpgaphjphb8g4p8s246ce4rpf.apps.googleusercontent.com",
           "client_type": 3
         }
