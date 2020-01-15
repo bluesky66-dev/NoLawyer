@@ -1,0 +1,21 @@
+{
+  "additionalUserInfo": {
+    "isNewUser": false
+  },
+  "user": {
+    "displayName": null,
+    "email": "test@gmail.com",
+    "emailVerified": false,
+    "isAnonymous": false,
+    "metadata": [
+      Object
+    ],
+    "phoneNumber": null,
+    "photoURL": null,
+    "providerData": [
+      Array
+    ],
+    "providerId": "firebase",
+    "uid": "0mSFowB5yrQ9obH4aVqPj72xCOI3"
+  }
+}

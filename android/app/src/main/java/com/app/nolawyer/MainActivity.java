@@ -1,4 +1,4 @@
-package com.nolawyer;
+package com.app.nolawyer;
 
 import android.Manifest;
 import android.os.Bundle;

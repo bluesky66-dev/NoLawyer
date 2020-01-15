@@ -8,25 +8,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:583570693591:android:ec6ef41e942599e403bf92",
+        "mobilesdk_app_id": "1:583570693591:android:2eb2f9f5b5ce3f9603bf92",
         "android_client_info": {
-          "package_name": "com.nolawyer"
+          "package_name": "com.app.nolawyer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "583570693591-ii6e7lao71tbl130ugempo7c4ltkkook.apps.googleusercontent.com",
+          "client_id": "583570693591-d1nk98q3nnifd8iglf1rgbh7gvfnopgg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.nolawyer",
+            "package_name": "com.app.nolawyer",
             "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },
         {
-          "client_id": "583570693591-4qn9abih2mpa36k22b596iclr3pgg0rf.apps.googleusercontent.com",
+          "client_id": "583570693591-ooi1edpg9ceo1i9nr5mq2cii77v6h87t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.nolawyer",
+            "package_name": "com.app.nolawyer",
             "certificate_hash": "c5e2916d5d42eae1af077369caf5ae58658bce57"
           }
         },

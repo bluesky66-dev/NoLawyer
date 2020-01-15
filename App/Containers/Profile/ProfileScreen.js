@@ -12,20 +12,28 @@ class ProfileScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      email: 'jamesorior@gmail.com',
-      password: '*************',
-      phone: '+444235851499',
-      pinEmail: '',
-      pinPass: '',
+      email: '',
+      password: '',
+      phone: '',
+      pinRCode: '',
+      pinCode: '',
       avatar: {
         uri: '',
         path: 'users'
       },
+      photoURL: null,
       isLoading: false,
     }
   }
 
   componentDidMount() {
+    const { userInfo } = this.props;
+    console.log('userInfo ===', userInfo);
+    const user = typeof userInfo.user !== 'undefined' ? userInfo.user: userInfo;
+    this.setState({
+      email: user.email,
+      phone: user.phoneNumber,
+    });
   }
 
   render() {
@@ -87,15 +95,15 @@ class ProfileScreen extends React.Component {
                 placeholder={'Choose 6 digit code'}
                 keyboardType={'numeric'}
                 secureTextEntry={true}
-                onChangeText={text => this.setState({pinPass: text})}
-                value={this.state.pinPass}
+                onChangeText={text => this.setState({pinCode: text})}
+                value={this.state.pinCode}
               />
               <TextInput
                 style={[Fonts.PoppinsRegular, Style.profileInput]}
                 placeholder={'Confirm your 6 digit code'}
                 keyboardType={'numeric'}
-                onChangeText={text => this.setState({pinEmail: text})}
-                value={this.state.pinEmail}
+                onChangeText={text => this.setState({pinRCode: text})}
+                value={this.state.pinRCode}
               />
             </View>
           </View>
@@ -175,6 +183,7 @@ ProfileScreen.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
+  userInfo: state.user.user,
 })
 
 const mapDispatchToProps = (dispatch) => ({
