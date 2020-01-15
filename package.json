@@ -52,6 +52,7 @@
     "redux-persist": "^5.10.0",
     "redux-saga": "^1.0.2",
     "reduxsauce": "^1.0.1",
+    "uuid": "^3.3.3",
     "validator": "^12.1.0"
   },
   "devDependencies": {

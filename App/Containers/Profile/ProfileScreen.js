@@ -12,6 +12,7 @@ class ProfileScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      uid: '',
       email: '',
       password: '',
       phone: '',
@@ -33,10 +34,14 @@ class ProfileScreen extends React.Component {
     this.setState({
       email: user.email,
       phone: user.phoneNumber,
+      uid: user.uid,
+      photoURL: user.photoURL,
     });
   }
 
   render() {
+    const { email, phone, photoURL } = this.state;
+    const userPhoto = photoURL ? { uri: photoURL } : UserImage;
     return (
       <View
         style={[
@@ -54,7 +59,7 @@ class ProfileScreen extends React.Component {
             <TouchableOpacity
               onPress={() => this._handleChoosePhoto()}
               style={Style.u240}>
-              <Image style={Style.u240Img} source={UserImage} resizeMode={'contain'}/>
+              <Image style={Style.u240Img} source={userPhoto} resizeMode={'contain'}/>
               {/*<TouchableOpacity*/}
               {/*  style={[Helpers.center, Style.avatarBtn]}*/}
               {/*  onPress={() => this._updateAvatar()}*/}
