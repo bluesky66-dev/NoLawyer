@@ -26,7 +26,7 @@ class RootScreen extends Component {
     const initialLink = await dynamicLinks().getInitialLink();
     if (initialLink) {
       const parsed = queryString.parse(initialLink.url);
-      if (parsed.mode && parsed.mode === 'verifyEmail') {
+      if (parsed.mode) {
         if (parsed.oobCode) {
           // console.log("initialLink ===", initialLink);
           // console.log("parsed.oobCode ===", parsed.oobCode);
@@ -34,6 +34,7 @@ class RootScreen extends Component {
           switch (actionCodeInfo.operation) {
             case 'EMAIL_SIGNIN': break;
             case 'PASSWORD_RESET': {
+              NavigationService.navigateAndReset('ForgetPasswordScreen', {ActionCode: parsed.oobCode});
               break;
             }
             case 'RECOVER_EMAIL': break;

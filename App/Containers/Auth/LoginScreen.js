@@ -25,7 +25,7 @@ class LoginScreen extends React.Component {
     console.log('email, password ', email, password )
     const { showToast, loginWithEmail } = this.props;
     if (!validator.isEmail(email)) {
-      showToast('Invalid email');
+      showToast('Email address is missing');
       return false;
     }
     if (!validator.isLength(password, { min: 8 })) {

@@ -24,7 +24,7 @@ class RegisterScreen extends React.Component {
     // const { navigate } = this.props.navigation;
 
     if (!validator.isEmail(email)) {
-      showToast('Invalid email');
+      showToast('Email address is missing');
       return false;
     }
     if (!validator.isLength(password, { min: 8 })) {

@@ -20,17 +20,24 @@ class ForgetPasswordScreen extends React.Component {
   }
 
   componentDidMount() {
+    const ActionCode = this.props.navigation.getParam('ActionCode', false);
+    if (ActionCode) {
+      this.setState({
+        step: 3,
+        confirmCode: ActionCode,
+      })
+    }
   }
 
 
   async _toResetPassword() {
-    const { email, confirmCode, password, step } = this.state;
+    const { email, confirmCode, step, password } = this.state;
     const { showLoading, showToast } = this.props;
     const {navigate} = this.props.navigation;
     showLoading(true);
     if (step === 1) {
       if (!validator.isEmail(email)) {
-        showToast('Invalid email');
+        showToast('Email address is missing');
         return false;
       }
       try {
@@ -53,29 +60,19 @@ class ForgetPasswordScreen extends React.Component {
         showLoading(false);
         showToast(errorMessage)
       }
-    } /*else if (step === 2) {
-      try {
-        await await auth().verifyPasswordResetCode(confirmCode);
-        showLoading(false);
-        this.setState({step: 3});
-      } catch (e) {
-        let errorMessage = e.message.replace(e.code, '').replace('[]', '');
-        console.log('reset password 2 ==', errorMessage);
-        showLoading(false);
-        showToast(errorMessage)
-      }
     } else if (step === 3) {
       try {
         await await auth().confirmPasswordReset(confirmCode, password);
         showLoading(false);
-        // navigate('ResetPasswordScreen');
+        showToast('Your password has been reset successfully');
+        navigate('LoginScreen');
       } catch (e) {
         let errorMessage = e.message.replace(e.code, '').replace('[]', '');
         console.log('reset password 3 ==', errorMessage);
         showLoading(false);
         showToast(errorMessage)
       }
-    }*/
+    }
   }
 
   render() {
@@ -104,13 +101,6 @@ class ForgetPasswordScreen extends React.Component {
               keyboardType={'email-address'}
               onChangeText={text => this.setState({email: text})}
               value={email}
-            />}
-            {step === 2 && <TextInput
-              style={[Fonts.PoppinsRegular, Style.u41Input]}
-              placeholder={'6 digit code'}
-              keyboardType={'numeric'}
-              onChangeText={text => this.setState({confirmCode: text})}
-              value={confirmCode}
             />}
             {step === 3 && <TextInput
               style={[Fonts.PoppinsRegular, Style.u41Input]}
