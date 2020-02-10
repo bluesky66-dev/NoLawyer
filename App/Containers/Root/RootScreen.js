@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import auth from '@react-native-firebase/auth'
+import dynamicLinks from '@react-native-firebase/dynamic-links';
 import NavigationService from 'App/Services/NavigationService'
 import AppNavigator from 'App/Navigators/AppNavigator'
-import { StatusBar, View } from 'react-native'
+import { Alert, StatusBar, View } from 'react-native'
 import { connect } from 'react-redux'
 import Spinner from 'react-native-loading-spinner-overlay'
 import Toast from 'react-native-root-toast'
@@ -12,19 +13,53 @@ import UserActions from 'App/Stores/User/Actions'
 import ToastActions from '../../Stores/Toast/Actions'
 import { PropTypes } from 'prop-types'
 import { Helpers } from 'App/Theme'
-
+import { EstonAssistant } from 'App/Common'
+const queryString = require('query-string');
 
 class RootScreen extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     // Run the startup saga when the application is starting
-    let { fetchUserSuccess } = this.props
+    let { fetchUserSuccess, showToast } = this.props
     SplashScreen.hide();
     this.props.startup();
-    // EstonAssistant.init();
-
+    EstonAssistant.init();
+    const initialLink = await dynamicLinks().getInitialLink();
+    if (initialLink) {
+      const parsed = queryString.parse(initialLink.url);
+      if (parsed.mode && parsed.mode === 'verifyEmail') {
+        if (parsed.oobCode) {
+          console.log("initialLink ===", initialLink);
+          console.log("parsed.oobCode ===", parsed.oobCode);
+          const actionCodeInfo = await auth().checkActionCode(parsed.oobCode);
+          switch (actionCodeInfo.operation) {
+            case 'EMAIL_SIGNIN': break;
+            case 'PASSWORD_RESET': {
+              break;
+            }
+            case 'RECOVER_EMAIL': break;
+            case 'VERIFY_EMAIL': {
+              await auth().applyActionCode(parsed.oobCode);
+              showToast('Your email is verified');
+              break;
+            }
+          }
+        }
+      }
+    }
     this.authSubscription = auth().onAuthStateChanged((user) => {
       if (user) {
-        // console.log('onAuthStateChanged ==== user');
+        console.log('user.emailVerified', user.emailVerified);
+        if (user.email && !user.emailVerified) {
+          // Alert.alert(
+          //   'Verify Email',
+          //   'Your email is not verified.',
+          //   [
+          //     {text: 'OK', onPress: () => console.log('OK Pressed')},
+          //   ],
+          //   {cancelable: false},
+          // );
+          return false;
+        }
         fetchUserSuccess(user);
         NavigationService.navigateAndReset('MainScreen')
       } else {
@@ -79,6 +114,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchUserSuccess: (user) => dispatch(UserActions.fetchUserSuccess(user)),
   startup: () => dispatch(StartupActions.startup()),
   hideToast: () => dispatch(ToastActions.hideToast()),
+  showToast: (msg) => dispatch(ToastActions.showToast(msg)),
 })
 
 export default connect(

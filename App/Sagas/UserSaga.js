@@ -1,4 +1,5 @@
 import { call, put } from 'redux-saga/effects'
+import { Alert } from 'react-native'
 import UserActions from 'App/Stores/User/Actions'
 import ToastActions from 'App/Stores/Toast/Actions'
 import { userService } from 'App/Services/UserService'
@@ -32,12 +33,20 @@ export function* registerUser({email, password}) {
     const userCredential = yield call(userService.registerUser, email, password);
     if (userCredential) {
       ToastActions.showToast('You have registered successfully!')
+      Alert.alert(
+        'Verify Email',
+        'The verification email has been sent. Please verify your email.',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        {cancelable: false},
+      );
       yield put(UserActions.registerUserSuccess())
       // NavigationService.navigateAndReset('LoginScreen')
     }
   } catch (e) {
     let errorMessage = e.message.replace(e.code, '').replace('[]', '');
-    // console.log('register error ==', errorMessage);
+    console.log('register error ==', errorMessage);
     yield put(UserActions.fetchUserFailure(errorMessage));
     yield put(
       ToastActions.showToast(errorMessage)

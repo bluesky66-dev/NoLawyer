@@ -46,7 +46,20 @@ function fetchUser() {
 }
 
 function registerUser(email, password) {
-  return auth().createUserWithEmailAndPassword(email, password);
+  return auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
+    if (!userCredential.user.emailVerified) {
+      userCredential.user.sendEmailVerification({
+        handleCodeInApp: true,
+        dynamicLinkDomain: 'nolawyer.page.link',
+        url: 'https://nolawyer.page.link/app/email-verification',
+        android: {
+          installApp: true,
+          packageName: 'com.app.nolawyer',
+        },
+      });
+    }
+    return userCredential;
+  });
 }
 
 function loginWithEmailAndPassword(email, password) {
