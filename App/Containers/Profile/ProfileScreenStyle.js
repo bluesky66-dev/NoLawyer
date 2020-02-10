@@ -24,10 +24,10 @@ export default StyleSheet.create({
   },
   avatarBtn: {
     position: 'absolute',
-    right: hp(0),
-    bottom: hp(0),
-    width: hp(40),
-    height: hp(30),
+    right: hp(5),
+    bottom: hp(8),
+    width: hp(30),
+    height: hp(20),
   },
   cameraIcon: {
     width: '100%',

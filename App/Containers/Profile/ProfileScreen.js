@@ -6,7 +6,8 @@ import ImageResizer from 'react-native-image-resizer'
 import { Header } from '@Components'
 import Style from './ProfileScreenStyle'
 import { Fonts, Helpers } from 'App/Theme'
-import UserImage from '@Assets/Images/user_image_u242.png'
+import UserImage from '@Assets/Images/u143onboarding.png'
+import CameraIcon from '@Assets/Images/camera-icon.png'
 
 class ProfileScreen extends React.Component {
   constructor(props) {
@@ -56,17 +57,16 @@ class ProfileScreen extends React.Component {
         >
           <Header SubPage HideRight tilte={'Profile'}/>
           <View style={[Helpers.colCross, Style.profile]}>
-            <TouchableOpacity
-              onPress={() => this._handleChoosePhoto()}
+            <View
               style={Style.u240}>
               <Image style={Style.u240Img} source={userPhoto} resizeMode={'contain'}/>
-              {/*<TouchableOpacity*/}
-              {/*  style={[Helpers.center, Style.avatarBtn]}*/}
-              {/*  onPress={() => this._updateAvatar()}*/}
-              {/*>*/}
-              {/*  <Image style={Style.cameraIcon} source={CameraIcon} resizeMode={'contain'}/>*/}
-              {/*</TouchableOpacity>*/}
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={[Helpers.center, Style.avatarBtn]}
+                onPress={() => this._handleChoosePhoto()}
+              >
+                <Image style={Style.cameraIcon} source={CameraIcon} resizeMode={'contain'}/>
+              </TouchableOpacity>
+            </View>
             <View style={Style.u243}>
               <TextInput
                 style={[Fonts.PoppinsRegular, Style.profileInput]}

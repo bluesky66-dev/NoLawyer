@@ -2,6 +2,8 @@ import React from 'react'
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 import auth from '@react-native-firebase/auth';
+import PhoneInput from "react-native-phone-input";
+import CountryPicker from 'react-native-country-picker-modal';
 import Style from './AuthScreenStyle'
 import { widthPercentage as wp } from '@Common'
 import { Fonts, Helpers } from 'App/Theme'
@@ -12,10 +14,14 @@ import UserActions from '../../Stores/User/Actions'
 class AuthPhoneScreen extends React.Component {
   constructor(props) {
     super(props)
+    this.onPressFlag = this.onPressFlag.bind(this);
+    this.selectCountry = this.selectCountry.bind(this);
     this.state = {
       phone: '',
       confirmCode: '',
       step: 1,
+      openCountry: false,
+      cca2: 'US',
     }
     this.confirmation = null;
   }
@@ -23,30 +29,45 @@ class AuthPhoneScreen extends React.Component {
   componentDidMount() {
   }
 
+  onPressFlag() {
+    this.setState({openCountry: true})
+  }
+
+  selectCountry(country) {
+    this.phone.selectCountry(country.cca2.toLowerCase());
+    this.setState({ cca2: country.cca2 });
+  }
+
   async _toAuthPhone() {
-    const { phone, confirmCode, step } = this.state;
+    const { confirmCode, step } = this.state;
     const { showToast, showLoading } = this.props;
     showLoading(true);
     if (step === 1){
       try {
-        this.confirmation = await auth().signInWithPhoneNumber('+' + phone);
+        const phone = this.phone.getValue();
+        this.confirmation = await auth().signInWithPhoneNumber(phone);
         showLoading(false);
         this.setState({step: 2});
       } catch (e) {
         let errorMessage = e.message.replace(e.code, '').replace('[]', '');
-        console.log('auth phone ==', errorMessage);
+        // console.log('auth phone ==', errorMessage);
         showLoading(false);
-        showToast(errorMessage)
+        showToast("Phone number entered is invalid")
       }
     } else if (step === 2) {
-      try {
-        await this.confirmation.confirm(confirmCode);
+      if (confirmCode && confirmCode.length === 6) {
+        try {
+          await this.confirmation.confirm(confirmCode);
+          showLoading(false);
+        } catch (e) {
+          let errorMessage = e.message.replace(e.code, '').replace('[]', '');
+          showLoading(false);
+          showToast('Code entered is invalid');
+        }
+      } else {
         showLoading(false);
-      } catch (e) {
-        let errorMessage = e.message.replace(e.code, '').replace('[]', '');
-        console.log('phone confirm ==', errorMessage);
-        showLoading(false);
-        showToast(errorMessage)
+        showToast('Code entered is invalid');
+        return false;
       }
     }
   }
@@ -76,12 +97,16 @@ class AuthPhoneScreen extends React.Component {
             </Text>
           </View>
           <View style={Style.u41}>
-            {step === 1 && <TextInput
-              style={[Fonts.PoppinsRegular, Style.u41Input]}
+            {step === 1 && <PhoneInput
+              ref={(ref) => {
+                this.phone = ref;
+              }}
+              textProps={{
+                placeholder:'Mobile number'
+              }}
               placeholder={'Mobile number'}
-              keyboardType={'numeric'}
-              onChangeText={text => this.setState({phone: text})}
-              value={phone}
+              style={[Fonts.PoppinsRegular, Style.u41Input]}
+              onPressFlag={this.onPressFlag}
             />}
             {step === 2 && <ConfirmationCodeInput
               ref="codeInputRef2"
@@ -118,6 +143,18 @@ class AuthPhoneScreen extends React.Component {
             By signing up, you're agreeing to nolawyer terms and conditions
           </Text>
         </View>
+        {this.state.openCountry && <CountryPicker
+          ref={(ref) => {
+            this.countryPicker = ref;
+          }}
+          onSelect={value => this.selectCountry(value)}
+          translation="eng"
+          withFilter={true}
+          withCallingCode={true}
+          visible={this.state.openCountry}
+          countryCode={this.state.cca2}
+          onClose={() => this.setState({openCountry: false})}
+        />}
       </View>
     )
   }
