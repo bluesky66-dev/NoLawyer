@@ -46,9 +46,9 @@ function fetchUser() {
 }
 
 function registerUser(email, password) {
-  return auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
+  return auth().createUserWithEmailAndPassword(email, password).then(async (userCredential) => {
     if (!userCredential.user.emailVerified) {
-      userCredential.user.sendEmailVerification({
+      await userCredential.user.sendEmailVerification({
         handleCodeInApp: true,
         dynamicLinkDomain: 'nolawyer.page.link',
         url: 'https://nolawyer.page.link/app/email-verification',
@@ -57,6 +57,7 @@ function registerUser(email, password) {
           packageName: 'com.app.nolawyer',
         },
       });
+      await auth().currentUser.signOut();
     }
     return userCredential;
   });

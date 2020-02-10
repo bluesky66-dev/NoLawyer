@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { heightPercentage as hp, widthPercentage as wp } from '@Common'
-import { Colors } from 'App/Theme'
+import { Colors, Helpers } from 'App/Theme'
 
 export default StyleSheet.create({
   authWrapper: {
@@ -12,6 +12,7 @@ export default StyleSheet.create({
     paddingRight: wp(30),
   },
   u37: {
+    ...Helpers.center,
     marginTop: hp(14)
   },
   u37Text: {
@@ -119,6 +120,7 @@ export default StyleSheet.create({
     color: Colors.white,
   },
   u49: {
+    ...Helpers.center,
     marginTop: hp(2),
     paddingTop: hp(6),
   },
@@ -142,6 +144,7 @@ export default StyleSheet.create({
     marginBottom: hp(20),
     width: wp(174),
     height: 1,
+    alignSelf: 'center',
     backgroundColor: '#d0daeb',
   },
   u51: {

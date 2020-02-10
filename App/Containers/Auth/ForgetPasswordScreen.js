@@ -34,7 +34,15 @@ class ForgetPasswordScreen extends React.Component {
         return false;
       }
       try {
-        await auth().sendPasswordResetEmail(email);
+        await auth().sendPasswordResetEmail(email, {
+          handleCodeInApp: true,
+          dynamicLinkDomain: 'nolawyer.page.link',
+          url: 'https://nolawyer.page.link/app/reset-password',
+          android: {
+            installApp: true,
+            packageName: 'com.app.nolawyer',
+          },
+        });
         showLoading(false);
         showToast('Password reset email has been sent to your email address')
         navigate('LoginScreen');

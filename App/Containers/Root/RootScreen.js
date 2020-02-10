@@ -3,7 +3,7 @@ import auth from '@react-native-firebase/auth'
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import NavigationService from 'App/Services/NavigationService'
 import AppNavigator from 'App/Navigators/AppNavigator'
-import { Alert, StatusBar, View } from 'react-native'
+import { Alert, StatusBar, View, ToastAndroid } from 'react-native'
 import { connect } from 'react-redux'
 import Spinner from 'react-native-loading-spinner-overlay'
 import Toast from 'react-native-root-toast'
@@ -19,7 +19,7 @@ const queryString = require('query-string');
 class RootScreen extends Component {
   async componentDidMount() {
     // Run the startup saga when the application is starting
-    let { fetchUserSuccess, showToast } = this.props
+    let { fetchUserSuccess } = this.props
     SplashScreen.hide();
     this.props.startup();
     EstonAssistant.init();
@@ -28,8 +28,8 @@ class RootScreen extends Component {
       const parsed = queryString.parse(initialLink.url);
       if (parsed.mode && parsed.mode === 'verifyEmail') {
         if (parsed.oobCode) {
-          console.log("initialLink ===", initialLink);
-          console.log("parsed.oobCode ===", parsed.oobCode);
+          // console.log("initialLink ===", initialLink);
+          // console.log("parsed.oobCode ===", parsed.oobCode);
           const actionCodeInfo = await auth().checkActionCode(parsed.oobCode);
           switch (actionCodeInfo.operation) {
             case 'EMAIL_SIGNIN': break;
@@ -39,7 +39,7 @@ class RootScreen extends Component {
             case 'RECOVER_EMAIL': break;
             case 'VERIFY_EMAIL': {
               await auth().applyActionCode(parsed.oobCode);
-              showToast('Your email is verified');
+              ToastAndroid.show('Your email is verified', ToastAndroid.SHORT);
               break;
             }
           }
@@ -50,14 +50,6 @@ class RootScreen extends Component {
       if (user) {
         console.log('user.emailVerified', user.emailVerified);
         if (user.email && !user.emailVerified) {
-          // Alert.alert(
-          //   'Verify Email',
-          //   'Your email is not verified.',
-          //   [
-          //     {text: 'OK', onPress: () => console.log('OK Pressed')},
-          //   ],
-          //   {cancelable: false},
-          // );
           return false;
         }
         fetchUserSuccess(user);
@@ -84,11 +76,11 @@ class RootScreen extends Component {
         <Spinner
           visible={userIsLoading}
         />
-        <Toast
+        {showToast && <Toast
           visible={showToast}
           onShown={this._hideToast}
           position={Toast.positions.BOTTOM}
-        >{toastMessage}</Toast>
+        >{toastMessage}</Toast>}
         <AppNavigator
           // Initialize the NavigationService (see https://reactnavigation.org/docs/en/navigating-without-navigation-prop.html)
           ref={(navigatorRef) => {
@@ -114,7 +106,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchUserSuccess: (user) => dispatch(UserActions.fetchUserSuccess(user)),
   startup: () => dispatch(StartupActions.startup()),
   hideToast: () => dispatch(ToastActions.hideToast()),
-  showToast: (msg) => dispatch(ToastActions.showToast(msg)),
 })
 
 export default connect(
