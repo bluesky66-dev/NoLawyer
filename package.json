@@ -32,7 +32,7 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.10.1",
     "react": "16.9.0",
-    "react-native": "0.61.5",
+    "react-native": "0.62.3",
     "react-native-base64": "^0.0.2",
     "react-native-country-picker-modal": "^1.10.0",
     "react-native-document-picker": "^3.2.4",
